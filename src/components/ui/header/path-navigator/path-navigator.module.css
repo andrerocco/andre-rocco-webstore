@@ -1,8 +1,3 @@
-.aside {
-    position: absolute;
-    left: 10px;
-}
-
 .nav {
     text-transform: uppercase;
     font-size: calc(11rem / 16);

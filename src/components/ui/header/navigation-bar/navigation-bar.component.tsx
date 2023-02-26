@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 interface NavigationBarProps {
     children: React.ReactNode;
+    className?: string;
 }
 
 interface NavigationBarItemProps {
@@ -11,8 +12,8 @@ interface NavigationBarItemProps {
     path: string;
 }
 
-export default function NavigationBar({ children }: NavigationBarProps) {
-    return <nav className={styles.nav}>{children}</nav>;
+export default function NavigationBar({ children, className }: NavigationBarProps) {
+    return <nav className={className ? `${styles.nav} ${className}` : styles.nav}>{children}</nav>;
 }
 
 NavigationBar.item = ({ label, path }: NavigationBarItemProps) => {

@@ -31,3 +31,13 @@
     background-color: rgba(var(--color-white-rgb), 0.8);
     box-shadow: 0 0 2px 0 rgba(var(--color-black-rgb), 0.2);
 }
+
+@media screen and (max-width: 37.5rem) {
+    .nav {
+        width: 100%;
+    }
+
+    .nav_button {
+        width: 100%;
+    }
+}
