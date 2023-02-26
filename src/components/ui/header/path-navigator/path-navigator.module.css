@@ -1,0 +1,14 @@
+.aside {
+    position: absolute;
+    left: 10px;
+}
+
+.nav {
+    text-transform: uppercase;
+    font-size: calc(12rem / 16);
+}
+
+.nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
