@@ -5,7 +5,7 @@
 
 .nav {
     text-transform: uppercase;
-    font-size: calc(12rem / 16);
+    font-size: calc(11rem / 16);
 }
 
 .nav a:hover {
