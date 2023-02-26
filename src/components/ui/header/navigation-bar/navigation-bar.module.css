@@ -1,0 +1,33 @@
+.nav {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+
+    border-radius: 6px;
+    padding: 4px;
+    background-color: var(--color-grey);
+}
+
+.nav_button {
+    width: calc(100px + 5vw);
+    padding: 4px 0;
+    border-radius: 4px;
+
+    font-size: calc(12rem / 16);
+    text-align: center;
+
+    color: var(--text-primary);
+    background-color: rgba(var(--color-white-rgb), 0);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.nav_button:hover {
+    background-color: rgba(var(--color-black-rgb), 0.06);
+}
+
+.nav_button.selected {
+    background-color: rgba(var(--color-white-rgb), 0.8);
+    box-shadow: 0 0 2px 0 rgba(var(--color-black-rgb), 0.2);
+}

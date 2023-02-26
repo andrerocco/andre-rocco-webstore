@@ -1,3 +1,17 @@
+:root {
+    /* HEX Colors */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-grey: #f1f1f1;
+
+    /* RGB Color */
+    --color-white-rgb: 255, 255, 255;
+    --color-black-rgb: 0, 0, 0;
+
+    /* Text */
+    --text-primary: #000;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -7,6 +21,7 @@
 html,
 body {
     max-width: 100vw;
+    font-family: 'Univers Next Pro Extended', sans-serif;
 }
 
 a {
