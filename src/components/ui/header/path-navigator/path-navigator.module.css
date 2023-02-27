@@ -5,5 +5,5 @@
 
 .nav a:hover {
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: var(--underline-offset);
 }

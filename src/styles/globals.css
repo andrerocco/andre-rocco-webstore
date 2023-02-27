@@ -7,9 +7,11 @@
     /* RGB Color */
     --color-white-rgb: 255, 255, 255;
     --color-black-rgb: 0, 0, 0;
+    --color-grey-rgb: 241, 241, 241;
 
     /* Text */
     --text-primary: #000;
+    --underline-offset: 2px;
 }
 
 * {
