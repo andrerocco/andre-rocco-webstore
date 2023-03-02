@@ -1,0 +1,9 @@
+.button {
+    font-size: calc(11rem / 16);
+    color: var(--text-primary);
+}
+
+.button:hover {
+    text-decoration: underline;
+    text-underline-offset: var(--underline-offset);
+}
