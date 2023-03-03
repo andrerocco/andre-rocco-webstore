@@ -8,8 +8,6 @@ interface ComponentProps {
 }
 
 export default function GridItem({ imageUrl, title, subtitle, description }: ComponentProps) {
-    console.log(description);
-
     return (
         <div className={styles.container}>
             {imageUrl ? <img src={imageUrl} className={styles.image} /> : <div className={styles.image_square} />}

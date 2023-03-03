@@ -9,16 +9,15 @@ interface ComponentProps {
 }
 
 export default function ArchiveGrid({ data }: ComponentProps) {
-    console.log(data);
-
     return (
         <div className={styles.container}>
-            {data && (
+            {data?.length != 0 && (
                 <div className={styles.grid_wrapper}>
-                    {data.map((post) => (
+                    {data?.map((post) => (
                         <GridItem
                             key={post._id}
                             title={post?.data?.title}
+                            subtitle={post?.data?.seasson}
                             description={post?.data?.preview_description}
                             imageUrl={post?.data?.preview_image_url}
                         />

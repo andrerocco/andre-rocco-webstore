@@ -4,12 +4,18 @@ import {defineType} from 'sanity'
 const archivePost = defineType({
   name: 'archive_post',
   type: 'document',
-  title: 'Archive Post',
+  title: '[Posts] Archive',
   fields: [
     {
       name: 'title',
       type: 'string',
       title: 'Title',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -24,9 +30,19 @@ const archivePost = defineType({
       validation: (Rule: any) => Rule.min(0),
     },
     {
-      name: 'release_date',
+      name: 'released',
+      type: 'boolean',
+      title: 'Released',
+      initialValue: true,
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'released_date',
+      description:
+        'This value is used to sort the list of posts. If the item is not released, set this date to where you want it to appear in the list.',
       type: 'date',
-      title: 'Release date',
+      title: 'Released date',
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'preview_description',
@@ -39,6 +55,20 @@ const archivePost = defineType({
       title: 'Preview image URL',
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      date: 'released_date',
+      slug: 'slug',
+    },
+    prepare(selection) {
+      const {title, date, slug} = selection
+      return {
+        title: title,
+        subtitle: `${date.split('-').reverse().join('/')} | ${slug.current}`,
+      }
+    },
+  },
 })
 
 export default archivePost

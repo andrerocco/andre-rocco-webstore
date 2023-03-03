@@ -1,6 +1,5 @@
 // Sanity
-import { createClient } from 'next-sanity';
-import { getAllArchivePosts } from '@lib/sanity.client';
+import { getAllArchivePostsCover } from '@lib/sanity.client';
 // Interfaces
 import { IArchivePost } from '@models/archive-posts.interface';
 // Components
@@ -20,8 +19,7 @@ export default function Archive({ archivePosts }: props) {
 }
 
 export async function getStaticProps() {
-    // const archivePosts = [{}];
-    const archivePosts = await getAllArchivePosts();
+    const archivePosts = await getAllArchivePostsCover();
 
     return {
         props: {
