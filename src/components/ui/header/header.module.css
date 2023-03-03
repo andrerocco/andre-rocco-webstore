@@ -39,7 +39,7 @@
     }
 
     .header {
-        grid-template-columns: min-content;
+        grid-template-columns: 1fr min-content;
         grid-template-rows: min-content;
         grid-template-areas:
             'left_aside right_aside'
