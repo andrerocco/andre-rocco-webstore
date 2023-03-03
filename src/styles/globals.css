@@ -2,12 +2,12 @@
     /* HEX Colors */
     --color-white: #fff; /* #f7f7f7 */
     --color-black: #000;
-    --color-grey: #f1f1f1;
+    --color-light-grey: #f1f1f1;
 
     /* RGB Color */
     --color-white-rgb: 255, 255, 255;
     --color-black-rgb: 0, 0, 0;
-    --color-grey-rgb: 241, 241, 241;
+    --color-light-grey-rgb: 241, 241, 241;
 
     /* Text */
     --text-primary: #000;
