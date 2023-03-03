@@ -1,16 +1,19 @@
+import Image from 'next/image';
 import styles from './grid-item.module.css';
 
 interface ComponentProps {
-    imageUrl?: string;
-    title?: string;
+    title: string;
     subtitle?: string;
     description?: string;
+    imageUrl?: string;
 }
 
 export default function GridItem({ imageUrl, title, subtitle, description }: ComponentProps) {
     return (
         <div className={styles.container}>
-            {imageUrl ? <img src={imageUrl} className={styles.image} /> : <div className={styles.image_square} />}
+            <div className={styles.image_container}>
+                {imageUrl && <Image fill src={imageUrl} className={styles.image} />}
+            </div>
             <div className={styles.content_container}>
                 <div className={styles.title_container}>
                     <h5 className={styles.title}>{title}</h5>
