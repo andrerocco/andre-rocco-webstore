@@ -18,14 +18,33 @@
     object-fit: cover;
 }
 
+.image_square {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    background-color: var(--color-light-grey);
+}
+
 .title_container {
     width: 100%;
+    margin-top: calc(2rem / 16);
+
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
 }
 
-.container:hover .title_container .title {
+.container:hover .title_container .title,
+.container:hover .title_container .subtitle {
     text-decoration: underline;
     text-underline-offset: var(--underline-offset);
+}
+
+.description {
+    margin-top: calc(2rem / 16);
+    text-align: justify;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }

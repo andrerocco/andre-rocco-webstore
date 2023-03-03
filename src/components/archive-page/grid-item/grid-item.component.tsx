@@ -1,18 +1,21 @@
 import styles from './grid-item.module.css';
 
-export default function GridItem() {
+interface ComponentProps {
+    imageUrl?: string;
+    title?: string;
+    subtitle?: string;
+    description?: string;
+}
+
+export default function GridItem({ imageUrl, title, subtitle, description }: ComponentProps) {
     return (
         <div className={styles.container}>
-            <img src="https://i.ebayimg.com/images/g/RtkAAOSwbF9j2lZN/s-l1600.jpg" className={styles.image} />
+            {imageUrl ? <img src={imageUrl} className={styles.image} /> : <div className={styles.image_square} />}
             <div className={styles.title_container}>
-                <h5 className={styles.title}>Título do post</h5>
-                <span>AW 2022</span>
+                <h5 className={styles.title}>{title}</h5>
+                {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
             </div>
-            <p className={styles.description}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, nisl eget ultricies tincidunt,
-                nisl nisl aliquam libero, vitae lacinia nisl nisl eget nisl. Sed tincidunt, nisl eget ultricies
-                tincidunt, nisl nisl aliquam libero, vitae lacinia nisl nisl eget nisl.
-            </p>
+            {description && <p className={styles.description}>{description}</p>}
         </div>
     );
 }
