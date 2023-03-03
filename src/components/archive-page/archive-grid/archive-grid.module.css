@@ -10,15 +10,26 @@
     max-width: 2400px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: min-content;
     grid-gap: 20px;
     padding: 0.25rem 20px 20px 20px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1500px) {
+    .grid_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
     .grid_wrapper {
         grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid_wrapper {
         grid-gap: clamp(10px, 5vw, 30px);
         padding: 10px;
     }
