@@ -3,6 +3,7 @@ import { SanityDocument } from '@sanity/types';
 export interface IArchivePost extends SanityDocument {
     data: {
         title: string;
+        slug: { current: string };
         seasson?: string;
         price?: number;
         released: {
