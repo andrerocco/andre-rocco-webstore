@@ -10,7 +10,6 @@ interface GridImageProps {
 export default function GridImage({ src, number, description = 'Teste de descrição', ...props }: GridImageProps) {
     return (
         <div className={styles.container} {...props}>
-            <span>{number}.</span>
             <div className={styles.image_description_container}>
                 <div className={styles.image_wrapper}>
                     <Image fill src={src} alt={description} className={styles.image} />
