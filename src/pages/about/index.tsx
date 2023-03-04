@@ -2,8 +2,8 @@ import PageContainer from '@components/layout/page-container/page-container.comp
 
 export default function About() {
     return (
-        <PageContainer>
+        <PageContainer.animated>
             <h1>ABOUT</h1>
-        </PageContainer>
+        </PageContainer.animated>
     );
 }

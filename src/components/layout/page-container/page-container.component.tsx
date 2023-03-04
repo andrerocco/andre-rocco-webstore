@@ -1,4 +1,6 @@
 import Head from 'next/head';
+// Animations
+import { motion } from 'framer-motion';
 
 interface PageHeadProps {
     title?: string;
@@ -37,3 +39,28 @@ export default function PageContainer({ title, description, children }: PageCont
         </>
     );
 }
+
+PageContainer.animated = ({ title, description, variants, transition, children }: AnimatedPageContainerProps) => {
+    return (
+        <>
+            <PageHead title={title} description={description} />
+            <motion.main
+                variants={
+                    variants
+                        ? variants
+                        : {
+                              initial: { opacity: 0 },
+                              animate: { opacity: 1 },
+                              exit: { opacity: 0 },
+                          }
+                }
+                transition={transition ? transition : { duration: 0.2, ease: 'easeInOut' }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+            >
+                {children}
+            </motion.main>
+        </>
+    );
+};

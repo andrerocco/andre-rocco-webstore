@@ -10,9 +10,20 @@ interface ComponentProps {
 
 export default function GridItem({ imageUrl, title, subtitle, description }: ComponentProps) {
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            style={{
+                position: 'relative',
+                width: '100%',
+                height: 'auto',
+                aspectRatio: 1,
+                overflow: 'hidden',
+            }}
+        >
             <div className={styles.image_container}>
-                {imageUrl && <Image fill alt={title} src={imageUrl} className={styles.image} />}
+                {imageUrl && (
+                    <Image fill alt={title} src={imageUrl} className={styles.image} style={{ objectFit: 'cover' }} />
+                )}
             </div>
             <div className={styles.content_container}>
                 <div className={styles.title_container}>

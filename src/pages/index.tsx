@@ -4,8 +4,8 @@ import PageContainer from '@components/layout/page-container/page-container.comp
 
 export default function Home() {
     return (
-        <PageContainer title="ANDRE⠀⠀ROCCO™">
+        <PageContainer.animated title="ANDRE⠀⠀ROCCO™">
             <p></p>
-        </PageContainer>
+        </PageContainer.animated>
     );
 }
