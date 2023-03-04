@@ -12,9 +12,9 @@ interface props {
 
 export default function Archive({ archivePosts }: props) {
     return (
-        <PageContainer.animated title="Archive | ANDRE⠀⠀ROCCO™">
+        <PageContainer title="Archive | ANDRE⠀⠀ROCCO™">
             <ArchiveCoverGrid data={archivePosts} />
-        </PageContainer.animated>
+        </PageContainer>
     );
 }
 

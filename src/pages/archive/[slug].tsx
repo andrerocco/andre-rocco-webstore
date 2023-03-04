@@ -3,8 +3,8 @@ import PageContainer from '@components/layout/page-container/page-container.comp
 
 export default function Test() {
     return (
-        <PageContainer.animated>
+        <PageContainer>
             <ImageGrid />
-        </PageContainer.animated>
+        </PageContainer>
     );
 }
