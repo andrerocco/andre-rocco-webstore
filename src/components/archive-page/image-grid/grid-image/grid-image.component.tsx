@@ -12,7 +12,7 @@ export default function GridImage({ src, number, description = 'Teste de descri√
         <div className={styles.container} {...props}>
             <div className={styles.image_description_container}>
                 <div className={styles.image_wrapper}>
-                    <Image fill src={src} alt={description} className={styles.image} />
+                    <Image unoptimized fill src={src} alt={description} className={styles.image} />
                 </div>
                 <p className={styles.description}>{description}</p>
             </div>

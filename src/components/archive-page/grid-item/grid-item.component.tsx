@@ -12,7 +12,7 @@ export default function GridItem({ imageUrl, title, subtitle, description }: Com
     return (
         <div className={styles.container}>
             <div className={styles.image_container}>
-                {imageUrl && <Image fill alt={title} src={imageUrl} className={styles.image} />}
+                {imageUrl && <Image unoptimized fill alt={title} src={imageUrl} className={styles.image} />}
             </div>
             <div className={styles.content_container}>
                 <div className={styles.title_container}>
