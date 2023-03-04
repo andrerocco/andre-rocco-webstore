@@ -12,6 +12,11 @@ interface NavigationBarItemProps {
     path: string;
 }
 
+interface NavigationBarIconProps {
+    icon: React.ReactNode;
+    path: string;
+}
+
 export default function NavigationBar({ children, className }: NavigationBarProps) {
     return <nav className={className ? `${styles.nav} ${className}` : styles.nav}>{children}</nav>;
 }
@@ -22,6 +27,16 @@ NavigationBar.item = ({ label, path }: NavigationBarItemProps) => {
     return (
         <Link href={path} className={`${styles.nav_button} ${path === router.pathname && styles.selected}`}>
             {label}
+        </Link>
+    );
+};
+
+NavigationBar.icon = ({ icon, path, ...props }: NavigationBarIconProps) => {
+    const router = useRouter();
+
+    return (
+        <Link href={path} className={`${styles.nav_icon} ${path === router.pathname && styles.selected}`} {...props}>
+            {icon}
         </Link>
     );
 };

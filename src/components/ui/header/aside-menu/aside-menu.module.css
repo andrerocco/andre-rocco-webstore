@@ -1,0 +1,16 @@
+.aside {
+    display: initial;
+}
+
+.aside .nav {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: calc(20rem / 16);
+}
+
+@media screen and (max-width: 87.5rem) {
+    .aside {
+        display: none !important;
+        background-color: green;
+    }
+}

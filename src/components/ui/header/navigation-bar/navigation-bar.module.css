@@ -1,5 +1,4 @@
 .nav {
-    width: fit-content;
     height: fit-content;
     display: flex;
     flex-direction: row;
@@ -33,12 +32,47 @@
     box-shadow: 0 0 2px 0 rgba(var(--color-black-rgb), 0.2);
 }
 
-@media screen and (max-width: 37.5rem) {
+.nav_icon {
+    display: none;
+
+    min-width: 41px;
+    border-radius: 4px;
+
+    background-color: rgba(var(--color-white-rgb), 0); /* TODO - Generalize */
+    transition: background-color 0.15s ease-in-out;
+}
+
+.nav_icon:hover {
+    background-color: rgba(var(--color-black-rgb), 0.06);
+}
+
+.nav_icon.selected {
+    background-color: rgba(var(--color-white-rgb), 0.8);
+    box-shadow: 0 0 2px 0 rgba(var(--color-black-rgb), 0.2);
+}
+
+@media screen and (max-width: 87.5rem) {
+    .nav_button {
+        width: calc(30px + 10vw);
+    }
+
+    .nav_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 50rem) {
     .nav {
         width: 100%;
     }
 
     .nav_button {
         width: 100%;
+    }
+
+    .nav_icon {
+        min-width: clamp(20px, 5vw, 41px);
     }
 }
