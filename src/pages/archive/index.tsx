@@ -4,7 +4,7 @@ import { getAllArchivePostsCover } from '@lib/sanity.client';
 import { IArchivePost } from '@models/archive-posts.interface';
 // Components
 import PageContainer from '@components/layout/page-container/page-container.component';
-import ArchiveGrid from '@components/archive-page/archive-grid/archive-grid.component';
+import ArchiveCoverGrid from '@components/archive-page/archive-cover-grid/archive-cover-grid.component';
 
 interface props {
     archivePosts: IArchivePost[];
@@ -12,9 +12,9 @@ interface props {
 
 export default function Archive({ archivePosts }: props) {
     return (
-        <PageContainer title="Archive | ANDRE⠀⠀ROCCO™">
-            <ArchiveGrid data={archivePosts} />
-        </PageContainer>
+        <PageContainer.animated title="Archive | ANDRE⠀⠀ROCCO™">
+            <ArchiveCoverGrid data={archivePosts} />
+        </PageContainer.animated>
     );
 }
 

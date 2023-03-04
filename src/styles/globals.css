@@ -30,3 +30,10 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+::-moz-selection {
+    background: #d2eb79; /* WebKit/Blink Browsers */
+}
+::selection {
+    background: #d2eb79; /* WebKit/Blink Browsers */
+}

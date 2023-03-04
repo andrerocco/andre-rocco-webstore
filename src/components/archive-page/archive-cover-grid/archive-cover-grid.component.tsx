@@ -1,4 +1,4 @@
-import styles from './archive-grid.module.css';
+import styles from './archive-cover-grid.module.css';
 // Interfaces
 import { IArchivePost } from '@models/archive-posts.interface';
 // Components
@@ -8,7 +8,7 @@ interface ComponentProps {
     data?: IArchivePost[];
 }
 
-export default function ArchiveGrid({ data }: ComponentProps) {
+export default function ArchiveCoverGrid({ data }: ComponentProps) {
     return (
         <div className={styles.container}>
             {data?.length != 0 && (
