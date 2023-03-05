@@ -14,7 +14,15 @@ export default function GridItem({ href, imageUrl, title, subtitle, description 
     return (
         <Link href={href} className={styles.container}>
             <div className={styles.image_container}>
-                {imageUrl && <Image fill alt={title} src={imageUrl} className={styles.image} />}
+                {imageUrl && (
+                    <Image
+                        fill
+                        sizes="(max-width: 900px) 100vw, (max-width: 1500px) 50vw, 33vw"
+                        alt={title}
+                        src={imageUrl}
+                        className={styles.image}
+                    />
+                )}
             </div>
             <div className={styles.content_container}>
                 <div className={styles.title_container}>

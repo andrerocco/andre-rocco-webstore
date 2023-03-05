@@ -23,9 +23,10 @@ export default function NavigationBar({ children, className }: NavigationBarProp
 
 NavigationBar.item = ({ label, path }: NavigationBarItemProps) => {
     const router = useRouter();
+    const isSubPath = router.pathname.split('/').slice(1)[0] === path.split('/').slice(1)[0];
 
     return (
-        <Link href={path} className={`${styles.nav_button} ${path === router.pathname && styles.selected}`}>
+        <Link href={path} className={`${styles.nav_button} ${isSubPath && styles.selected}`}>
             {label}
         </Link>
     );
@@ -33,9 +34,10 @@ NavigationBar.item = ({ label, path }: NavigationBarItemProps) => {
 
 NavigationBar.icon = ({ icon, path, ...props }: NavigationBarIconProps) => {
     const router = useRouter();
+    const isSubPath = router.pathname.split('/').slice(1)[0] === path.split('/').slice(1)[0];
 
     return (
-        <Link href={path} className={`${styles.nav_icon} ${path === router.pathname && styles.selected}`} {...props}>
+        <Link href={path} className={`${styles.nav_icon} ${isSubPath && styles.selected}`} {...props}>
             {icon}
         </Link>
     );
