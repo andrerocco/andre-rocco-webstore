@@ -85,7 +85,7 @@ const archivePost = {
       date: 'released_date',
       slug: 'slug',
     },
-    prepare(selection) {
+    prepare(selection: {title: string; date: string; slug: {current: string}}) {
       const {title, date, slug} = selection
       return {
         title: title,
