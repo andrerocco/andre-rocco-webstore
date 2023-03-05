@@ -16,6 +16,7 @@ export default function ArchiveCoverGrid({ data }: ComponentProps) {
                     {data?.map((post) => (
                         <GridItem
                             key={post._id}
+                            href={`/archive/${post?.data?.slug?.current}`}
                             title={post?.data?.title}
                             subtitle={post?.data?.seasson}
                             description={post?.data?.preview_description}
