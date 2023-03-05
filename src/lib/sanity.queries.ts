@@ -10,6 +10,7 @@ export const archivePostsCoverQuery = groq`
 			price,
 			preview_description,
 			preview_image_url,
+			slug,
 		}
 	}
 `;

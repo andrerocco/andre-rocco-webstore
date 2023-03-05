@@ -1,7 +1,9 @@
-import Image from 'next/image';
 import styles from './image-grid-row.module.css';
+import { useState } from 'react';
+import Image from 'next/image';
 // Components
 import GridImage from '../grid-image/grid-image.component';
+import IArchivePageGridImage from '@models/archive-page-image.interface';
 
 type Layout =
     | ['horizontal', 'horizontal']
@@ -11,27 +13,89 @@ type Layout =
 
 interface ImageGridRowProps {
     layout: Layout;
-    imageUrlList: string[];
+    imageList: IArchivePageGridImage[];
+    fadeOpacity?: boolean;
+    onMouseOverImage?: () => void;
+    onMouseLeaveImage?: () => void;
 }
 
-export default function ImageGridRow({ layout, imageUrlList }: ImageGridRowProps) {
+export default function ImageGridRow({
+    layout,
+    imageList,
+    fadeOpacity,
+    onMouseOverImage,
+    onMouseLeaveImage,
+}: ImageGridRowProps) {
+    const [shownDescriptionIndex, setShownDescriptionIndex] = useState(0); // Will be set to the last hovered image index
+
     function getGridTemplateColumns(layout: Layout) {
-        let string = '';
-        layout.forEach((type) => {
-            if (type === 'horizontal') {
-                string += '2.02fr ';
-            } else if (type === 'vertical') {
-                string += '1fr ';
-            }
-        });
-        return string;
+        if (layout.every((val, index) => val === ['horizontal', 'horizontal'][index])) {
+            return styles.grid_hh;
+        } else if (layout.every((val, index) => val === ['horizontal', 'vertical'][index])) {
+            return styles.grid_vh;
+        } else if (layout.every((val, index) => val === ['vertical', 'horizontal'][index])) {
+            return styles.grid_hv;
+        } else if (layout.every((val, index) => val === ['vertical', 'vertical', 'vertical'][index])) {
+            return styles.grid_vvv;
+        }
     }
 
     return (
-        <div className={styles.container} style={{ gridTemplateColumns: getGridTemplateColumns(layout) }}>
-            {imageUrlList.map((image, index) => {
-                return <GridImage key={index} number={index + 1} src={image} />;
-            })}
+        <div className={styles.container}>
+            <div
+                className={`${getGridTemplateColumns(layout)} ${
+                    fadeOpacity ? `${styles.grid_wrapper} ${styles.fade}` : styles.grid_wrapper
+                }`}
+            >
+                {imageList.map((imageData, index) => {
+                    const { url, description } = imageData;
+
+                    return (
+                        <div
+                            key={index}
+                            className={styles.image_container}
+                            onMouseOver={() => {
+                                onMouseOverImage?.();
+                                setShownDescriptionIndex(index);
+                            }}
+                            onMouseLeave={onMouseLeaveImage}
+                        >
+                            <div className={styles.image_description_wrapper}>
+                                <div
+                                    className={`${styles.image_wrapper} ${
+                                        layout[index] === 'vertical' ? styles.vertical : styles.horizontal
+                                    }`}
+                                >
+                                    <Image
+                                        fill
+                                        src={url}
+                                        alt={description ? description : 'Image'}
+                                        className={styles.image}
+                                    />
+                                </div>
+                                <p className={styles.description}>{description}</p>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+            <div className={styles.hover_description_container}>
+                {imageList.map((imageData, index) => {
+                    return (
+                        <div
+                            key={index}
+                            className={
+                                index !== shownDescriptionIndex
+                                    ? `${styles.hover_description} ${styles.hidden}`
+                                    : styles.hover_description
+                            }
+                        >
+                            <span>{imageData.number}. </span>
+                            <p>{imageData?.description}</p>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

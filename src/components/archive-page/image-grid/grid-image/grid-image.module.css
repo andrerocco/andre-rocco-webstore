@@ -28,7 +28,7 @@
 
 .description {
     margin-top: calc(4rem / 16);
-    color: #999;
+    color: #999; /* TODO - Variável */
 
     width: 100%;
 }

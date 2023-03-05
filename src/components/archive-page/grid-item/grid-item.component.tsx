@@ -1,16 +1,18 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './grid-item.module.css';
 
 interface ComponentProps {
+    href: string;
     title: string;
     subtitle?: string;
     description?: string;
     imageUrl?: string;
 }
 
-export default function GridItem({ imageUrl, title, subtitle, description }: ComponentProps) {
+export default function GridItem({ href, imageUrl, title, subtitle, description }: ComponentProps) {
     return (
-        <div className={styles.container}>
+        <Link href={href} className={styles.container}>
             <div className={styles.image_container}>
                 {imageUrl && <Image fill alt={title} src={imageUrl} className={styles.image} />}
             </div>
@@ -21,6 +23,6 @@ export default function GridItem({ imageUrl, title, subtitle, description }: Com
                 </div>
                 {description && <p className={styles.description}>{description}</p>}
             </div>
-        </div>
+        </Link>
     );
 }
