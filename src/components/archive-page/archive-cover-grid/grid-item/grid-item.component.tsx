@@ -5,12 +5,15 @@ import styles from './grid-item.module.css';
 interface ComponentProps {
     href: string;
     title: string;
+    priority?: boolean;
     subtitle?: string;
     description?: string;
     imageUrl?: string;
 }
 
-export default function GridItem({ href, imageUrl, title, subtitle, description }: ComponentProps) {
+export default function GridItem({ priority, href, imageUrl, title, subtitle, description }: ComponentProps) {
+    //console.log('key: ', key, typeof key === 'number' && key < 3 ? true : false);
+
     return (
         <Link href={href} className={styles.container}>
             <div className={styles.image_container}>
@@ -18,9 +21,13 @@ export default function GridItem({ href, imageUrl, title, subtitle, description 
                     <Image
                         fill
                         sizes="(max-width: 900px) 100vw, (max-width: 1500px) 50vw, 33vw"
+                        priority={priority ? priority : false}
                         alt={title}
                         src={imageUrl}
                         className={styles.image}
+                        onLoadingComplete={() => {
+                            console.log('Image loaded');
+                        }}
                     />
                 )}
             </div>
