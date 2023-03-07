@@ -47,10 +47,13 @@
 
 @media screen and (max-width: 50rem) {
     .header {
+        padding: 10px 1vw 1vw 1vw;
+        background-color: white;
+
         grid-template-rows: min-content min-content;
         grid-template-columns: 1fr;
         grid-template-areas:
-            'center_nav'
-            'left_aside';
+            'left_aside'
+            'center_nav';
     }
 }

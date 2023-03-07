@@ -18,8 +18,8 @@ export default function Header() {
                     <NavigationBar.item label="ARCHIVE" path="/archive" />
                     <NavigationBar.item label="ABOUT" path="/about" />
                     <NavigationBar.icon icon={<RiHandbagLine size={'1.1rem'} title={'Cart'} />} path="/cart" />
-                    <NavigationBar.icon icon={<RiUser3Line size={'1.1rem'} title={'Account'} />} path="/account" />
-                    <NavigationBar.icon icon={<RiSearchLine size={'1.1rem'} title={'Search'} />} path="/account" />
+                    {/* <NavigationBar.icon icon={<RiUser3Line size={'1.1rem'} title={'Account'} />} path="/account" /> */}
+                    <NavigationBar.icon icon={<RiSearchLine size={'1.1rem'} title={'Search'} />} path="/search" />
                 </NavigationBar>
             </div>
 
