@@ -12,8 +12,6 @@ interface ComponentProps {
 }
 
 export default function GridItem({ priority, href, imageUrl, title, subtitle, description }: ComponentProps) {
-    //console.log('key: ', key, typeof key === 'number' && key < 3 ? true : false);
-
     return (
         <Link href={href} className={styles.container}>
             <div className={styles.image_container}>

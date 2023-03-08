@@ -47,7 +47,7 @@ export default function ImageGridRow({
                 }`}
             >
                 {imageList.map((imageData, index) => {
-                    const { url, description } = imageData;
+                    const { url, number, description } = imageData;
 
                     return (
                         <div
@@ -73,7 +73,10 @@ export default function ImageGridRow({
                                         className={styles.image}
                                     />
                                 </div>
-                                <p className={styles.description}>{description}</p>
+                                <div className={styles.description}>
+                                    <span>{number}. </span>
+                                    <p>{description}</p>
+                                </div>
                             </div>
                         </div>
                     );

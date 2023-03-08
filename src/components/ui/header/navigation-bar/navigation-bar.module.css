@@ -73,6 +73,6 @@
     }
 
     .nav_icon {
-        min-width: clamp(20px, 5vw, 41px);
+        min-width: clamp(25px, 5vw, 41px);
     }
 }
