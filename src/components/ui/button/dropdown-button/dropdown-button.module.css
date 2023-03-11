@@ -1,0 +1,48 @@
+.label {
+    display: block;
+    font-size: calc(11rem / 16);
+    color: var(--text-primary);
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.label:hover {
+    text-decoration: underline;
+    text-underline-offset: var(--underline-offset);
+}
+
+.list {
+    padding: 0;
+    list-style: none;
+    max-height: 0;
+
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(16rem / 16); /* TODO - Definir gap para desktop */
+}
+
+.list li:first-child {
+    margin-top: calc(16rem / 16); /* TODO - Definir gap para desktop */
+}
+
+.list.open {
+    max-height: fit-content;
+}
+
+@media screen and (max-width: 37.5rem) {
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: calc(20rem / 16);
+    }
+
+    .list li:first-child {
+        margin-top: calc(20rem / 16);
+    }
+}

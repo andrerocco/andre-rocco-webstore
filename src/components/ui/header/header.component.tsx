@@ -1,29 +1,41 @@
-import SimpleButton from '../button/simple-button/simple-button.component';
 import styles from './header.module.css';
-// Icons
-import { RiShoppingBagLine, RiHandbagLine, RiUser3Line, RiUserLine, RiSearchLine } from 'react-icons/ri';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 // Components
-import NavigationBar from './navigation-bar/navigation-bar.component';
 import PathNavigator from './path-navigator/path-navigator.component';
-import AsideMenu from './aside-menu/aside-menu.component';
+import HamburgerMenu from './hamburger-menu/hamburger-menu.component';
+import NavItem from './nav-item/nav-item.component';
+import DropdownButton from '../button/dropdown-button/dropdown-button.component';
+import SimpleButton from '../button/simple-button/simple-button.component';
 
 export default function Header() {
     return (
         <header className={styles.header}>
             <PathNavigator rootLabel={'ANDRE___ROCCO'} />
 
-            <div className={styles.nav_container}>
-                <NavigationBar className={styles.nav}>
-                    <NavigationBar.item label="SHOP" path="/" />
-                    <NavigationBar.item label="ARCHIVE" path="/archive" />
-                    <NavigationBar.item label="ABOUT" path="/about" />
-                    <NavigationBar.icon icon={<RiHandbagLine size={'1.1rem'} title={'Cart'} />} path="/cart" />
-                    <NavigationBar.icon icon={<RiUser3Line size={'1.1rem'} title={'Account'} />} path="/account" />
-                    <NavigationBar.icon icon={<RiSearchLine size={'1.1rem'} title={'Search'} />} path="/account" />
-                </NavigationBar>
-            </div>
+            <ul className={styles.nav_list}>
+                <NavItem label={'Shop'} labelHref={'/shop'} dropdown={<div>asd</div>} />
+                <NavItem label={'Archive'} labelHref={'/archive'} />
+                <NavItem label={'About'} labelHref={'/about'} />
+            </ul>
 
-            <AsideMenu />
+            <HamburgerMenu className={styles.hamburger}>
+                <div className={styles.dropdown_wrapper}>
+                    <DropdownButton
+                        label={'Shop'}
+                        listStyles={{
+                            width: '100%',
+                            textAlign: 'right',
+                        }}
+                    >
+                        <SimpleButton label={'Primeiro'} href={'/primeiro'} />
+                        <SimpleButton label={'Segundo'} href={'/segundo'} />
+                        <SimpleButton label={'Terceiro'} href={'/terceiro'} />
+                    </DropdownButton>
+                    <SimpleButton label={'Archive'} href={'/archive'} />
+                    <SimpleButton label={'About'} href={'/about'} />
+                </div>
+            </HamburgerMenu>
         </header>
     );
 }

@@ -1,4 +1,5 @@
 .button {
+    display: block;
     font-size: calc(11rem / 16);
     color: var(--text-primary);
 }

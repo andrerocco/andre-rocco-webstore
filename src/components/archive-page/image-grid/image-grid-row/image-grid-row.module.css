@@ -67,11 +67,11 @@
 
 .image_container > .image_description_wrapper > .description {
     display: none;
+    padding: 0 1vw;
     margin-top: calc(8rem / 16);
-    margin-bottom: calc(8rem / 16);
+    margin-bottom: calc(0rem / 16);
     color: #999; /* TODO - Variável */
 
-    text-align: justify;
     white-space: pre-wrap;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -123,7 +123,9 @@
     }
 
     .image_container > .image_description_wrapper > .description {
-        display: initial;
+        display: flex;
+        flex-direction: row;
+        gap: calc(2rem / 16);
     }
 
     .hover_description_container {

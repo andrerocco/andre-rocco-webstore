@@ -2,7 +2,6 @@ import styles from './image-grid-row.module.css';
 import { useState } from 'react';
 import Image from 'next/image';
 // Components
-import GridImage from '../grid-image/grid-image.component';
 import IArchivePageGridImage from '@models/archive-page-image.interface';
 
 type Layout =
@@ -48,7 +47,7 @@ export default function ImageGridRow({
                 }`}
             >
                 {imageList.map((imageData, index) => {
-                    const { url, description } = imageData;
+                    const { url, number, description } = imageData;
 
                     return (
                         <div
@@ -68,12 +67,16 @@ export default function ImageGridRow({
                                 >
                                     <Image
                                         fill
+                                        sizes="(max-width: 50rem) 100vw, 50vw" // Estimate the image size for loading performance
                                         src={url}
                                         alt={description ? description : 'Image'}
                                         className={styles.image}
                                     />
                                 </div>
-                                <p className={styles.description}>{description}</p>
+                                <div className={styles.description}>
+                                    <span>{number}. </span>
+                                    <p>{description}</p>
+                                </div>
                             </div>
                         </div>
                     );
