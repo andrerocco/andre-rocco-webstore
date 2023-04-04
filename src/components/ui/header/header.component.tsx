@@ -14,7 +14,7 @@ export default function Header() {
             <PathNavigator rootLabel={'ANDRE___ROCCO'} />
 
             <ul className={styles.nav_list}>
-                <NavItem label={'Shop'} labelHref={'/shop'} dropdown={<div>asd</div>} />
+                <NavItem label={'Shop'} labelHref={'/shop'} />
                 <NavItem label={'Archive'} labelHref={'/archive'} />
                 <NavItem label={'About'} labelHref={'/about'} />
             </ul>

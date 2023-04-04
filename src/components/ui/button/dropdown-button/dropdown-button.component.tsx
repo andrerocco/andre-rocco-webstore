@@ -5,11 +5,12 @@ import { useRouter } from 'next/router';
 interface DropdownButtonProps {
     label: string;
     className?: string;
+    labelStyles?: React.CSSProperties;
     listStyles?: React.CSSProperties;
     children?: React.ReactNode;
 }
 
-export default function DropdownButton({ label, className, listStyles, children }: DropdownButtonProps) {
+export default function DropdownButton({ label, className, labelStyles, listStyles, children }: DropdownButtonProps) {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +23,7 @@ export default function DropdownButton({ label, className, listStyles, children 
 
     return (
         <div className={className ? `${styles.container} ${className}` : styles.container}>
-            <a className={styles.label} onClick={() => setIsOpen(!isOpen)}>
+            <a className={styles.label} onClick={() => setIsOpen(!isOpen)} style={labelStyles}>
                 {label}
             </a>
             <ul className={isOpen ? `${styles.list} ${styles.open}` : `${styles.list}`} style={listStyles}>
