@@ -26,7 +26,7 @@ export default function PathNavigator({ rootLabel, className }: PathNavigatorPro
                         return (
                             <span key={index}>
                                 {' / '}
-                                <Link href={relativePath}>{path}</Link>
+                                <Link href={relativePath}>{path?.replaceAll('-', ' ')}</Link>
                             </span>
                         );
                     })}
