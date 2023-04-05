@@ -45,6 +45,36 @@ export default function ImageGrid() {
                     },
                 ]}
             />
+            <ImageGridRow
+                layout={['horizontal', 'vertical']}
+                imageList={[
+                    {
+                        url: 'https://cdn.shopify.com/s/files/1/0527/0362/5380/products/IMG2_4429_1b798b85-96c5-497b-aace-ae94183deb73.jpg?v=1669938597',
+                        description: 'Jaqueta de couro possui botões.',
+                        number: 4,
+                    },
+                    {
+                        url: 'https://cdn.shopify.com/s/files/1/0527/0362/5380/products/IMG2_4426_09c3a7fb-5025-4da0-ae7e-62d0a6b24256.jpg?v=1669938596',
+                        description: 'A parte de trás possui ajuste para permitir a movimentação livre.',
+                        number: 5,
+                    },
+                ]}
+            />
+            <ImageGridRow
+                layout={['vertical', 'horizontal']}
+                imageList={[
+                    {
+                        url: 'https://cdn.shopify.com/s/files/1/0527/0362/5380/products/IMG2_4429_1b798b85-96c5-497b-aace-ae94183deb73.jpg?v=1669938597',
+                        description: 'Jaqueta de couro possui botões.',
+                        number: 4,
+                    },
+                    {
+                        url: 'https://cdn.shopify.com/s/files/1/0527/0362/5380/products/IMG2_4426_09c3a7fb-5025-4da0-ae7e-62d0a6b24256.jpg?v=1669938596',
+                        description: 'A parte de trás possui ajuste para permitir a movimentação livre.',
+                        number: 5,
+                    },
+                ]}
+            />
         </div>
     );
 }
