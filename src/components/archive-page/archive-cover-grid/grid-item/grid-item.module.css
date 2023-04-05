@@ -8,9 +8,9 @@
 }
 
 .container * {
-    font-size: calc(11rem / 16);
+    font-size: var(--font-size);
     font-weight: 400;
-    line-height: 1.5;
+    line-height: var(--line-height-label);
 }
 
 .image_container {

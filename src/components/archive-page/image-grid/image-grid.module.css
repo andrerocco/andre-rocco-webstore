@@ -7,9 +7,9 @@
     gap: 20px;
 }
 
-@media screen and (max-width: 50rem) {
+@media screen and (max-width: 40rem) {
     .container {
         padding: 0;
-        gap: 10px;
+        gap: 0;
     }
 }

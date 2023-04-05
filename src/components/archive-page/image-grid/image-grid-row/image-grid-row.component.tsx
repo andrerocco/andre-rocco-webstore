@@ -42,6 +42,7 @@ export default function ImageGridRow({ layout, imageList }: ImageGridRowProps) {
                         >
                             <Image
                                 fill
+                                quality={100}
                                 sizes="(max-width: 50rem) 100vw, 50vw" // Estimate the image size for loading performance
                                 src={url}
                                 alt={description ? description : 'Image'}

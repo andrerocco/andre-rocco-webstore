@@ -25,7 +25,8 @@
     flex-direction: column;
     gap: calc(10rem / 16);
 
-    font-size: calc(11rem / 16);
+    font-size: var(--font-size);
+    line-height: var(--line-height-label);
 }
 
 .image_description_wrapper > .image_wrapper {
@@ -52,7 +53,7 @@
     hyphens: auto;
 }
 
-@media (pointer: fine) {
+@media (pointer: fine) and (min-width: 50rem) {
     /* Styles for screens with pointer/mouse cursor */
     .image_description_wrapper > .description {
         opacity: 0;
@@ -64,7 +65,7 @@
     }
 }
 
-@media screen and (max-width: 50rem) {
+@media screen and (max-width: 40rem) {
     .grid_wrapper {
         grid-template-columns: 1fr;
         gap: 0;
@@ -72,6 +73,10 @@
 
     .image_description_wrapper {
         gap: 0;
+    }
+
+    .image_description_wrapper > .image_wrapper {
+        max-height: unset;
     }
 
     .image_description_wrapper > .image_wrapper.horizontal {

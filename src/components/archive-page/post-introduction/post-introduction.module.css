@@ -7,17 +7,18 @@
 }
 
 .container * {
-    font-size: calc(11rem / 16);
+    font-size: var(--font-size);
     text-align: center;
+    line-height: var(--line-height-body);
 }
 
 .text_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: calc(24rem / 16);
-
     width: calc(600px + 15vw);
     max-width: 80vw;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(14rem / 16);
 }
 
 .text_wrapper > h1 {
@@ -31,6 +32,10 @@
 
 @media screen and (max-width: 50rem) {
     .container {
-        padding: calc(108rem / 16) 5%;
+        padding: calc(108rem / 16) 0;
+    }
+
+    .text_wrapper {
+        max-width: 85vw;
     }
 }

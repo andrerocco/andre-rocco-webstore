@@ -1,6 +1,6 @@
 .nav_item > .title {
     display: block;
-    font-size: calc(11rem / 16);
+    font-size: var(--font-size);
     color: var(--text-primary);
 }
 
