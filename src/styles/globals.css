@@ -12,6 +12,9 @@
     /* Text */
     --text-primary: #000;
     --underline-offset: 2px;
+    --font-size: calc(10rem / 16);
+    --line-height-label: 1.5em;
+    --line-height-body: 1.8em;
 }
 
 * {
@@ -24,6 +27,7 @@ html,
 body {
     max-width: 100vw;
     font-family: 'Univers Next Pro Extended', sans-serif;
+    line-height: 1.5;
 }
 
 a {
