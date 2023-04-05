@@ -35,20 +35,21 @@
     animation-delay: 0.4s;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) and (min-height: 700px) {
     .grid_wrapper {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     .grid_wrapper {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .grid_wrapper {
+        grid-template-columns: 1fr;
         grid-gap: clamp(10px, 5vw, 30px);
         padding: 10px;
     }
