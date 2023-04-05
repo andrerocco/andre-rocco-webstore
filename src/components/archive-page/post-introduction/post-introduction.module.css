@@ -10,6 +10,7 @@
     font-size: var(--font-size);
     text-align: center;
     line-height: var(--line-height-body);
+    white-space: pre-line;
 }
 
 .text_wrapper {

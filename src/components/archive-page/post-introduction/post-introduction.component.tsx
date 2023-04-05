@@ -9,25 +9,8 @@ export default function PostIntroduction({ title, description }: PostIntroductio
     return (
         <div className={styles.container}>
             <div className={styles.text_wrapper}>
-                {title && (
-                    <h1>
-                        Aviator Cropped Leather Jacket
-                        <br />
-                        SS2023
-                    </h1>
-                )}
-                {description && (
-                    <p>
-                        A jaqueta de couro é um clássico que nunca sai de moda. Ela é um item essencial no guarda-roupa
-                        de qualquer homem, pois é uma peça que combina com qualquer ocasião. Além disso, ela é super
-                        versátil e pode ser usada em qualquer estação do ano. A jaqueta de couro é um clássico que nunca
-                        sai de moda. Ela é um item essencial no guarda-roupa de qualquer homem, pois é uma peça que
-                        combina com qualquer ocasião. Além disso, ela é super versátil e pode ser usada em qualquer
-                        estação do ano. A jaqueta de couro é um clássico que nunca sai de moda. Ela é um item essencial
-                        no guarda-roupa de qualquer homem, pois é uma peça que combina com qualquer ocasião. Além disso,
-                        ela é super versátil e pode ser usada em qualquer estação do ano.
-                    </p>
-                )}
+                {title && <h1>{title}</h1>}
+                {description && <p>{description}</p>}
             </div>
         </div>
     );
