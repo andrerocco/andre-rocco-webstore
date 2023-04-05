@@ -6,10 +6,22 @@ interface SimpleButtonProps {
     href?: string;
     weight?: 'bold' | 'normal';
     className?: string;
+    [propName: string]: any;
 }
 
 export default function SimpleButton({ label, href, weight, className, ...props }: SimpleButtonProps) {
-    return (
+    const isUrl = href && (href.startsWith('http') || href.startsWith('www.'));
+
+    return isUrl ? (
+        <a
+            href={href ? href : '/'}
+            className={className ? `${styles.button} ${className}` : styles.button}
+            style={{ fontWeight: weight ? weight : 'normal' }}
+            {...props}
+        >
+            {label}
+        </a>
+    ) : (
         <Link
             href={href ? href : '/'}
             className={className ? `${styles.button} ${className}` : styles.button}
