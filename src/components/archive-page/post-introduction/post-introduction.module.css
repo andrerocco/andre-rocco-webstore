@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+    padding: calc(180rem / 16) 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container * {
+    font-size: calc(11rem / 16);
+    text-align: center;
+}
+
+.text_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: calc(24rem / 16);
+
+    width: calc(600px + 15vw);
+    max-width: 80vw;
+}
+
+.text_wrapper > h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.text_wrapper > p {
+    font-weight: normal;
+}
+
+@media screen and (max-width: 50rem) {
+    .container {
+        padding: calc(108rem / 16) 5%;
+    }
+}
