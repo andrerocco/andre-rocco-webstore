@@ -13,20 +13,9 @@ type Layout =
 interface ImageGridRowProps {
     layout: Layout;
     imageList: IArchivePageGridImage[];
-    fadeOpacity?: boolean;
-    onMouseOverImage?: () => void;
-    onMouseLeaveImage?: () => void;
 }
 
-export default function ImageGridRow({
-    layout,
-    imageList,
-    fadeOpacity,
-    onMouseOverImage,
-    onMouseLeaveImage,
-}: ImageGridRowProps) {
-    const [shownDescriptionIndex, setShownDescriptionIndex] = useState(0); // Will be set to the last hovered image index
-
+export default function ImageGridRow({ layout, imageList }: ImageGridRowProps) {
     function getGridTemplateColumns(layout: Layout) {
         if (layout.every((val, index) => val === ['horizontal', 'horizontal'][index])) {
             return styles.grid_hh;
@@ -40,65 +29,29 @@ export default function ImageGridRow({
     }
 
     return (
-        <div className={styles.container}>
-            <div
-                className={`${getGridTemplateColumns(layout)} ${
-                    fadeOpacity ? `${styles.grid_wrapper} ${styles.fade}` : styles.grid_wrapper
-                }`}
-            >
-                {imageList.map((imageData, index) => {
-                    const { url, number, description } = imageData;
+        <div className={`${getGridTemplateColumns(layout)} ${styles.grid_wrapper}`}>
+            {imageList.map((imageData, index) => {
+                const { url, number, description } = imageData;
 
-                    return (
+                return (
+                    <div key={index} className={styles.image_description_wrapper}>
                         <div
-                            key={index}
-                            className={styles.image_container}
-                            onMouseOver={() => {
-                                onMouseOverImage?.();
-                                setShownDescriptionIndex(index);
-                            }}
-                            onMouseLeave={onMouseLeaveImage}
+                            className={`${styles.image_wrapper} ${
+                                layout[index] === 'vertical' ? styles.vertical : styles.horizontal
+                            }`}
                         >
-                            <div className={styles.image_description_wrapper}>
-                                <div
-                                    className={`${styles.image_wrapper} ${
-                                        layout[index] === 'vertical' ? styles.vertical : styles.horizontal
-                                    }`}
-                                >
-                                    <Image
-                                        fill
-                                        sizes="(max-width: 50rem) 100vw, 50vw" // Estimate the image size for loading performance
-                                        src={url}
-                                        alt={description ? description : 'Image'}
-                                        className={styles.image}
-                                    />
-                                </div>
-                                <div className={styles.description}>
-                                    <span>{number}. </span>
-                                    <p>{description}</p>
-                                </div>
-                            </div>
+                            <Image
+                                fill
+                                sizes="(max-width: 50rem) 100vw, 50vw" // Estimate the image size for loading performance
+                                src={url}
+                                alt={description ? description : 'Image'}
+                                className={styles.image}
+                            />
                         </div>
-                    );
-                })}
-            </div>
-            <div className={styles.hover_description_container}>
-                {imageList.map((imageData, index) => {
-                    return (
-                        <div
-                            key={index}
-                            className={
-                                index !== shownDescriptionIndex
-                                    ? `${styles.hover_description} ${styles.hidden}`
-                                    : styles.hover_description
-                            }
-                        >
-                            <span>{imageData.number}. </span>
-                            <p>{imageData?.description}</p>
-                        </div>
-                    );
-                })}
-            </div>
+                        <p className={styles.description}>{description}</p>
+                    </div>
+                );
+            })}
         </div>
     );
 }

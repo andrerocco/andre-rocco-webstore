@@ -29,9 +29,6 @@ export default function ImageGrid() {
                         number: 3,
                     },
                 ]}
-                fadeOpacity={isHoveringImage}
-                onMouseOverImage={() => setIsHoveringImage(true)}
-                onMouseLeaveImage={() => setIsHoveringImage(false)}
             />
             <ImageGridRow
                 layout={['horizontal', 'horizontal']}
@@ -47,9 +44,6 @@ export default function ImageGrid() {
                         number: 5,
                     },
                 ]}
-                fadeOpacity={isHoveringImage}
-                onMouseOverImage={() => setIsHoveringImage(true)}
-                onMouseLeaveImage={() => setIsHoveringImage(false)}
             />
         </div>
     );
