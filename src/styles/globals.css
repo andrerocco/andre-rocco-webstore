@@ -12,7 +12,7 @@
     /* Text */
     --text-primary: #000;
     --underline-offset: 2px;
-    --font-size: calc(10rem / 16);
+    --font-size: calc(11rem / 16);
     --line-height-label: 1.5em;
     --line-height-body: 1.8em;
 }
