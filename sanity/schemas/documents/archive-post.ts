@@ -54,9 +54,9 @@ const archivePost = {
       group: 'information',
     },
     {
-      name: 'seasson',
+      name: 'season',
       type: 'string',
-      title: 'Seasson',
+      title: 'Season',
       group: 'information',
       fieldset: 'release_information',
     },
