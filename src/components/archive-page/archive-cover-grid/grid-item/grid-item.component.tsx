@@ -20,7 +20,8 @@ export default function GridItem({ priority, href, imageUrl, title, subtitle, de
                         fill
                         sizes="(max-width: 900px) 100vw, (max-width: 1500px) 50vw, 33vw"
                         priority={priority ? priority : false}
-                        alt={title}
+                        quality={100}
+                        alt={title ? title : 'Image'}
                         src={imageUrl}
                         className={styles.image}
                         onLoadingComplete={() => {
@@ -31,7 +32,7 @@ export default function GridItem({ priority, href, imageUrl, title, subtitle, de
             </div>
             <div className={styles.content_container}>
                 <div className={styles.title_container}>
-                    <h5 className={styles.title}>{title}</h5>
+                    {title && <h5 className={styles.title}>{title}</h5>}
                     {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
                 </div>
                 {description && <p className={styles.description}>{description}</p>}
