@@ -1,4 +1,8 @@
+import styles from './page-container.module.css';
 import Head from 'next/head';
+// Components
+import Header from '@components/ui/header/header.component';
+import Footer from '@components/ui/footer/footer.component';
 
 interface PageHeadProps {
     title?: string;
@@ -33,7 +37,12 @@ export default function PageContainer({ title, description, children }: PageCont
     return (
         <>
             <PageHead title={title} description={description} />
-            <main>{children}</main>
+
+            <main id={styles.main}>
+                <Header />
+                {children}
+                <Footer />
+            </main>
         </>
     );
 }
