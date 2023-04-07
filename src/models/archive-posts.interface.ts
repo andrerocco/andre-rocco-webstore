@@ -1,16 +1,27 @@
-import { SanityDocument, Slug } from '@sanity/types';
+import { SanityDocument, Slug, UrlDefinition } from '@sanity/types';
 
 export interface IArchivePost extends SanityDocument {
-    data: {
-        title: string;
-        slug: Slug;
-        seasson?: string;
-        price?: number;
-        released: {
-            status: boolean;
-            date: string;
-        };
+    slug?: Slug;
+    data?: {
+        title?: string;
+        season?: string;
+        price?: string;
+        released?: boolean;
+        released_date?: string;
+        introduction_description?: string;
         preview_description?: string;
         preview_image_url?: string;
+        details_grid?: {
+            layout:
+                | 'vertical-vertical-vertical'
+                | 'horizontal-horizontal'
+                | 'horizontal-vertical'
+                | 'vertical-horizontal';
+            images?: {
+                url: string;
+                alt: string;
+                description?: string;
+            }[];
+        }[];
     };
 }
