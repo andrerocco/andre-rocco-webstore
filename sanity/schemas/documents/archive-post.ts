@@ -5,7 +5,7 @@ const archivePost = {
   type: 'document',
   title: '[Posts] Archive',
   groups: [
-    {name: 'information', title: 'Information', default: true},
+    {name: 'information', title: 'Information'},
     {name: 'content', title: 'Content'},
   ],
   fieldsets: [
@@ -13,23 +13,44 @@ const archivePost = {
       name: 'release_information',
       title: 'Release information',
       options: {
+        rows: 2,
         columns: 2,
       },
     },
   ],
   fields: [
+    // Information
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title',
+      name: 'slug',
+      title: 'Slug',
+      description:
+        'Value used to create the URL of the post. It should be unique and not contain any special characters.',
+      type: 'slug',
       validation: (Rule: any) => Rule.required(),
       group: 'information',
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
+      name: 'title',
+      title: 'Title',
+      description:
+        'Displayed in the post cover/preview (where multiple archive posts are browsed) and used as title for the post introduction.',
+      type: 'string',
       validation: (Rule: any) => Rule.required(),
+      group: 'information',
+    },
+
+    {
+      name: 'preview_description',
+      title: 'Preview description',
+      description:
+        'This description will be displayed in the post cover/previews (where multiple archive posts are browsed). Paragraphs inserted here are translated into line breaks in the preview.',
+      type: 'text',
+      group: 'information',
+    },
+    {
+      name: 'preview_image_url',
+      type: 'url',
+      title: 'Preview image URL',
       group: 'information',
     },
     {
@@ -37,6 +58,7 @@ const archivePost = {
       type: 'string',
       title: 'Seasson',
       group: 'information',
+      fieldset: 'release_information',
     },
     {
       name: 'price',
@@ -44,6 +66,7 @@ const archivePost = {
       title: 'Price',
       validation: (Rule: any) => Rule.min(0),
       group: 'information',
+      fieldset: 'release_information',
     },
     {
       name: 'released',
@@ -66,17 +89,23 @@ const archivePost = {
       group: 'information',
       fieldset: 'release_information',
     },
+    // Content
     {
-      name: 'preview_description',
+      name: 'introduction_description',
+      title: 'Introduction description',
+      description:
+        'This description will be displayed in the post introduction. Paragraphs inserted here are translated into line breaks in the introduction.',
       type: 'text',
-      title: 'Preview description',
-      group: 'information',
+      group: 'content',
     },
     {
-      name: 'preview_image_url',
-      type: 'url',
-      title: 'Preview image URL',
-      group: 'information',
+      name: 'details_grid',
+      title: 'Image grid',
+      description:
+        'This array of modules will be transformed into a grid of images where each row correlates to a module (in order). Set and 2-3 images per row with its respective description.',
+      type: 'array',
+      of: [{type: 'image_row_two_module'}, {type: 'image_row_three_module'}],
+      group: 'content',
     },
   ],
   preview: {
@@ -84,12 +113,14 @@ const archivePost = {
       title: 'title',
       date: 'released_date',
       slug: 'slug',
+      imageUrl: 'preview_image_url', // Add preview_image_url to select
     },
     prepare(selection: any) {
-      const {title, date, slug} = selection
+      const {title, date, slug, imageUrl} = selection // Destructure imageUrl
       return {
         title: title,
         subtitle: `${date.split('-').reverse().join('/')} | ${slug.current}`,
+        imageUrl: imageUrl, // Add imageUrl to the returned object
       }
     },
   },
