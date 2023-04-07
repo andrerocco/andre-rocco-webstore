@@ -1,8 +1,8 @@
-# ANDRE⠀ROCCO™'s Webstore
+# ANDRE⠀ROCCO's Webstore
 
 _Read this in other languages: [English](./README.md), [Português (Brasil)](./README.pt-BR.md)_.
 
-> Explore ANDRE⠀ROCCO™'s vision through the official website. Discover the latest releases, projects and creations. Get
+> Explore ANDRE⠀ROCCO's vision through the official website. Discover the latest releases, projects and creations. Get
 > to know the story behind the development of each project of the brand through the _Archive_'s pages.
 
 This application includes a virtual store and a blog with a content management system. The application was developed
