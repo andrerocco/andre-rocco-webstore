@@ -4,11 +4,11 @@ import { IArchivePost } from '@models/archive-posts.interface';
 // Components
 import GridItem from './grid-item/grid-item.component';
 
-interface ComponentProps {
+interface ArchiveCoverGridProps {
     data?: IArchivePost[];
 }
 
-export default function ArchiveCoverGrid({ data }: ComponentProps) {
+export default function ArchiveCoverGrid({ data }: ArchiveCoverGridProps) {
     return (
         <div className={styles.container}>
             {data?.length != 0 && (
@@ -17,9 +17,9 @@ export default function ArchiveCoverGrid({ data }: ComponentProps) {
                         <GridItem
                             key={post?._id}
                             priority={index < 6 ? true : false}
-                            href={`/archive/${post?.data?.slug?.current}`}
-                            title={post?.data?.title}
-                            subtitle={post?.data?.seasson}
+                            href={`/archive/${post?.slug?.current}`}
+                            title={post?.data?.title ? post?.data?.title : 'No title'}
+                            subtitle={post?.data?.season}
                             description={post?.data?.preview_description}
                             imageUrl={post?.data?.preview_image_url}
                         />

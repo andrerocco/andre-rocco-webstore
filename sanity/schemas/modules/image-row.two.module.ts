@@ -37,36 +37,13 @@ const imageRowTwoModule = {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'image1',
-      title: 'Image',
-      description: 'URL for an Image/GIF.',
-      type: 'url',
-      fieldset: 'image_1_data',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'description1',
-      title: 'Description',
+      name: 'images',
+      title: 'Images',
       description:
-        'Short to medium description of the image (not required, leave blank for no description).',
-      type: 'text',
-      fieldset: 'image_1_data',
-    },
-    {
-      name: 'image2',
-      title: 'Image',
-      description: 'URL for an Image/GIF.',
-      type: 'url',
-      fieldset: 'image_2_data',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'description2',
-      title: 'Description',
-      description:
-        'Short to medium description of the image (not required, leave blank for no description).',
-      type: 'text',
-      fieldset: 'image_2_data',
+        'Choose the images that will be displayed in the row. The images will be displayed in the selected order.',
+      type: 'array',
+      of: [{type: 'image_module'}],
+      validation: (Rule: any) => Rule.required().min(2).max(2),
     },
   ],
   preview: {
@@ -76,7 +53,7 @@ const imageRowTwoModule = {
     prepare(selection: any) {
       const {layout} = selection
       return {
-        title: `Row - 2 Images (${layout.replace('-', ', ')})`,
+        title: `Row - 2 Images (${layout.replaceAll('-', ', ')})`,
       }
     },
   },

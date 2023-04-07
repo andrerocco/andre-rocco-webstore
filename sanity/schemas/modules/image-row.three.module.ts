@@ -34,59 +34,20 @@ const imageRowThreeModule = {
       title: 'Layout',
       type: 'string',
       options: {
-        list: [{title: 'Horizontal | Horizontal', value: 'vertical-vertical-vertical'}],
+        list: [{title: 'Vertical | Vertical | Vertical', value: 'vertical-vertical-vertical'}],
         layout: 'radio',
       },
       initialValue: 'vertical-vertical-vertical',
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'image1',
-      title: 'Image',
-      description: 'URL for an Image/GIF.',
-      type: 'url',
-      fieldset: 'image_1_data',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'description1',
-      title: 'Description',
+      name: 'images',
+      title: 'Images',
       description:
-        'Short to medium description of the image (not required, leave blank for no description).',
-      type: 'text',
-      fieldset: 'image_1_data',
-    },
-    {
-      name: 'image2',
-      title: 'Image',
-      description: 'URL for an Image/GIF.',
-      type: 'url',
-      fieldset: 'image_2_data',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'description2',
-      title: 'Description',
-      description:
-        'Short to medium description of the image (not required, leave blank for no description).',
-      type: 'text',
-      fieldset: 'image_2_data',
-    },
-    {
-      name: 'image3',
-      title: 'Image',
-      description: 'URL for an Image/GIF.',
-      type: 'url',
-      fieldset: 'image_3_data',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'description3',
-      title: 'Description',
-      description:
-        'Short to medium description of the image (not required, leave blank for no description).',
-      type: 'text',
-      fieldset: 'image_3_data',
+        'Choose the images that will be displayed in the row. The images will be displayed in the selected order.',
+      type: 'array',
+      of: [{type: 'image_module'}],
+      validation: (Rule: any) => Rule.required().min(3).max(3),
     },
   ],
   preview: {
@@ -96,7 +57,7 @@ const imageRowThreeModule = {
     prepare(selection: any) {
       const {layout} = selection
       return {
-        title: `Row - 3 Images (${layout.replace('-', ', ')})`,
+        title: `Row - 3 Images (${layout.replaceAll('-', ', ')})`,
       }
     },
   },
