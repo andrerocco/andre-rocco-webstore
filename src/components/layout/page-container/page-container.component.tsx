@@ -13,11 +13,6 @@ interface PageContainerProps extends PageHeadProps {
     children?: React.ReactNode;
 }
 
-interface AnimatedPageContainerProps extends PageContainerProps {
-    variants?: any;
-    transition?: any;
-}
-
 const fallback = {
     title: 'ANDRE___ROCCO',
     description:

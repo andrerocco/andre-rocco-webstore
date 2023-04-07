@@ -55,7 +55,9 @@
     margin-top: calc(4rem / 16);
     text-align: justify;
 
-    white-space: pre;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
