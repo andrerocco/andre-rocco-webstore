@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    padding: 10px;
+    padding: 0 5vw;
 
     display: flex;
     justify-content: center;
@@ -12,28 +12,10 @@
 
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    /* grid-auto-rows: min-content; */
-    grid-gap: 20px;
-    /* padding: 10px; */
+    grid-gap: 8px;
 }
 
-.grid_wrapper > * {
-    opacity: 0;
-}
-
-.grid_wrapper > *:nth-child(3n + 1) {
-    animation: fade-in-up 1s cubic-bezier(0.05, 0, 0, 1) forwards;
-}
-
-.grid_wrapper > *:nth-child(3n + 2) {
-    animation: fade-in-up 1s cubic-bezier(0.05, 0, 0, 1) forwards;
-    animation-delay: 0.2s;
-}
-
-.grid_wrapper > *:nth-child(3n + 3) {
-    animation: fade-in-up 1s cubic-bezier(0.05, 0, 0, 1) forwards;
-    animation-delay: 0.4s;
-}
+/* TODO - Fix mobile layouts */
 
 @media screen and (max-width: 1200px) and (min-height: 700px) {
     .grid_wrapper {
@@ -55,7 +37,7 @@
     }
 }
 
-@keyframes fade-in-up {
+/* @keyframes fade-in-up {
     0% {
         opacity: 0;
         transform: translateY(100px);
@@ -64,4 +46,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */

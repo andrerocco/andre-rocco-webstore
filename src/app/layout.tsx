@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 // Components
 import Header from '@components/ui/header/header.component';
 import Footer from '@components/ui/footer/footer.component';
+import PageContainer from '@components/layout/page-container/page-container.component';
 
 export const metadata: Metadata = {
     title: 'ANDRE___ROCCO',
@@ -17,9 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link href="https://fonts.cdnfonts.com/css/univers-next-pro-extended" rel="stylesheet" />
             </head>
             <body>
-                <Header />
-                <main>{children}</main>
-                <Footer />
+                <PageContainer>{children}</PageContainer>
             </body>
         </html>
     );

@@ -1,6 +1,7 @@
+'use client';
 import styles from './path-navigator.module.css';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 interface PathNavigatorProps {
     rootLabel: string;
@@ -8,10 +9,9 @@ interface PathNavigatorProps {
 }
 
 export default function PathNavigator({ rootLabel, className }: PathNavigatorProps) {
-    const router = useRouter();
+    const path = usePathname();
     // Split the path into an array of paths
-    const isRouteReady = router?.isReady;
-    const pathsArray = router?.asPath.split('/').filter((item) => item !== '');
+    const pathsArray = path?.split('/').filter((item) => item !== '');
 
     return (
         <aside className={className}>
@@ -19,7 +19,7 @@ export default function PathNavigator({ rootLabel, className }: PathNavigatorPro
                 <span>
                     <Link href="/">{rootLabel}</Link>
                 </span>
-                {isRouteReady &&
+                {pathsArray &&
                     pathsArray.map((path, index) => {
                         // Creates a full path from the root to the current path
                         const relativePath = pathsArray ? '/' + pathsArray.slice(0, index + 1).join('/') : '/';
