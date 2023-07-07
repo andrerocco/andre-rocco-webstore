@@ -5,7 +5,7 @@ const archivePost = {
   type: 'document',
   title: '[Posts] Archive',
   groups: [
-    {name: 'information', title: 'Information'},
+    {name: 'general_information', title: 'General information'},
     {name: 'content', title: 'Content'},
   ],
   fieldsets: [
@@ -27,7 +27,7 @@ const archivePost = {
         'Value used to create the URL of the post. It should be unique and not contain any special characters.',
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
-      group: 'information',
+      group: 'general_information',
     },
     {
       name: 'title',
@@ -36,28 +36,30 @@ const archivePost = {
         'Displayed in the post cover/preview (where multiple archive posts are browsed) and used as title for the post introduction.',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
-      group: 'information',
-    },
-
-    {
-      name: 'preview_description',
-      title: 'Preview description',
-      description:
-        'This description will be displayed in the post cover/previews (where multiple archive posts are browsed). Paragraphs inserted here are translated into line breaks in the preview.',
-      type: 'text',
-      group: 'information',
+      group: 'general_information',
     },
     {
       name: 'preview_image_url',
       type: 'url',
       title: 'Preview image URL',
-      group: 'information',
+      group: 'general_information',
     },
     {
-      name: 'season',
+      // Single select
+      name: 'lineup',
       type: 'string',
-      title: 'Season',
-      group: 'information',
+      title: 'Lineup',
+      description: 'The lineup this product belongs to.',
+      options: {
+        list: [
+          {title: 'MAINLINE', value: 'Mainline'},
+          {title: 'READY TO WEAR', value: 'Ready to wear'},
+          {title: 'ARCHIVE', value: 'Archive'},
+          {title: 'PROTOTYPE', value: 'Prototype'},
+        ],
+      },
+      validation: (Rule: any) => Rule.required(),
+      group: 'general_information',
       fieldset: 'release_information',
     },
     {
@@ -65,7 +67,7 @@ const archivePost = {
       type: 'number',
       title: 'Price',
       validation: (Rule: any) => Rule.min(0),
-      group: 'information',
+      group: 'general_information',
       fieldset: 'release_information',
     },
     {
@@ -76,7 +78,7 @@ const archivePost = {
         'If your item is not yet released, set this to false. This will hide any release related information from the post.',
       initialValue: true,
       validation: (Rule: any) => Rule.required(),
-      group: 'information',
+      group: 'general_information',
       fieldset: 'release_information',
     },
     {
@@ -86,7 +88,7 @@ const archivePost = {
       description:
         'This value is used to sort the list of posts. If the item is not released, set this date to where you want it to appear in the list.',
       validation: (Rule: any) => Rule.required(),
-      group: 'information',
+      group: 'general_information',
       fieldset: 'release_information',
     },
     // Content
@@ -99,12 +101,17 @@ const archivePost = {
       group: 'content',
     },
     {
-      name: 'details_grid',
-      title: 'Image grid',
-      description:
-        'This array of modules will be transformed into a grid of images where each row correlates to a module (in order). Set and 2-3 images per row with its respective description.',
+      name: 'product_images',
+      title: 'Product images',
+      description: "Images of the product that will be displayed in the product showcase's grid.",
       type: 'array',
-      of: [{type: 'image_row_two_module'}, {type: 'image_row_three_module'}],
+      of: [
+        {
+          type: 'url',
+          title: 'Image URL',
+        },
+      ],
+      validation: (Rule: any) => Rule.min(2),
       group: 'content',
     },
   ],

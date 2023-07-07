@@ -16,6 +16,24 @@ export const queryArchivePostsCover = groq`
 	}
 `;
 
+// Gets all 'Archive' posts with all data
+export const queryArchivePosts = groq`
+	*[_type == "archive_post"] | order(released_date desc) {
+		_createdAt, _id, _rev, _type, _updatedAt,
+		slug,
+		"data": {
+			title,
+			lineup,
+			price,
+			"released": {
+				"status": released,
+				released_date,
+			},
+			product_images,
+		}
+	}
+`;
+
 // Gets all slugs for 'Archive' posts
 export const queryArchivePostsSlugs = groq`
 	*[_type == "archive_post"] | order(released_date desc) {
@@ -31,12 +49,13 @@ export const queryArchivePostBySlug = groq`
 		slug,
 		"data": {
 			title,
-			season,
+			lineup,
 			price,
-			released,
-			released_date,
-			introduction_description,
-			details_grid,
+			"released": {
+				"status": released,
+				released_date,
+			},
+			product_images,
 	  }
 	}
 `;

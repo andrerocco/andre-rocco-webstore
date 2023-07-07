@@ -1,11 +1,20 @@
 import { createClient } from 'next-sanity';
 import { clientConfig } from './sanity.api';
-import { queryArchivePostsCover, queryArchivePostsSlugs, queryArchivePostBySlug } from './sanity.queries';
+import {
+    queryArchivePostsCover,
+    queryArchivePostsSlugs,
+    queryArchivePostBySlug,
+    queryArchivePosts,
+} from './sanity.queries';
 
 const sanityClient = createClient(clientConfig);
 
 export async function getAllArchivePostsCover() {
     return await sanityClient.fetch(queryArchivePostsCover);
+}
+
+export async function getAllArchivePosts() {
+    return await sanityClient.fetch(queryArchivePosts);
 }
 
 export async function getArchivePostSlugs() {
