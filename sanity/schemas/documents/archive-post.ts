@@ -93,14 +93,6 @@ const archivePost = {
     },
     // Content
     {
-      name: 'introduction_description',
-      title: 'Introduction description',
-      description:
-        'This description will be displayed in the post introduction. Paragraphs inserted here are translated into line breaks in the introduction.',
-      type: 'text',
-      group: 'content',
-    },
-    {
       name: 'product_images',
       title: 'Product images',
       description: "Images of the product that will be displayed in the product showcase's grid.",
@@ -112,6 +104,14 @@ const archivePost = {
         },
       ],
       validation: (Rule: any) => Rule.min(2),
+      group: 'content',
+    },
+    {
+      name: 'images_description',
+      title: 'Images description',
+      description:
+        'Description of the images. This will be displayed in the product showcase. Line breaks are reflected in the output and double line will create a new paragraph (text will be inserted in a new <p> element).',
+      type: 'text',
       group: 'content',
     },
   ],

@@ -17,7 +17,7 @@
     --line-height-body: 1.8em;
 
     /* Elements */
-    --header-height: calc(44rem / 16);
+    --header-height: calc(42rem / 16);
 }
 
 * {

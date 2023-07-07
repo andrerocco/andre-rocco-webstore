@@ -10,32 +10,34 @@ import SimpleButton from '../button/simple-button/simple-button.component';
 
 export default function Header() {
     return (
-        <header className={styles.header}>
-            <PathNavigator rootLabel={'ANDRE___ROCCO'} />
+        <div className={styles.header_block}>
+            <header className={styles.header}>
+                <PathNavigator rootLabel={'ANDRE___ROCCO'} />
 
-            <ul className={styles.nav_list}>
-                <NavItem label={'Shop'} labelHref={'/shop'} />
-                <NavItem label={'Archive'} labelHref={'/archive'} />
-                <NavItem label={'About'} labelHref={'/about'} />
-            </ul>
+                <ul className={styles.nav_list}>
+                    <NavItem label={'Shop'} labelHref={'/shop'} />
+                    <NavItem label={'Archive'} labelHref={'/archive'} />
+                    <NavItem label={'About'} labelHref={'/about'} />
+                </ul>
 
-            <HamburgerMenu className={styles.hamburger}>
-                <div className={styles.dropdown_wrapper}>
-                    <DropdownButton
-                        label={'Shop'}
-                        listStyles={{
-                            width: '100%',
-                            textAlign: 'right',
-                        }}
-                    >
-                        <SimpleButton label={'Primeiro'} href={'/primeiro'} />
-                        <SimpleButton label={'Segundo'} href={'/segundo'} />
-                        <SimpleButton label={'Terceiro'} href={'/terceiro'} />
-                    </DropdownButton>
-                    <SimpleButton label={'Archive'} href={'/archive'} />
-                    <SimpleButton label={'About'} href={'/about'} />
-                </div>
-            </HamburgerMenu>
-        </header>
+                <HamburgerMenu className={styles.hamburger}>
+                    <div className={styles.dropdown_wrapper}>
+                        <DropdownButton
+                            label={'Shop'}
+                            listStyles={{
+                                width: '100%',
+                                textAlign: 'right',
+                            }}
+                        >
+                            <SimpleButton label={'Primeiro'} href={'/primeiro'} />
+                            <SimpleButton label={'Segundo'} href={'/segundo'} />
+                            <SimpleButton label={'Terceiro'} href={'/terceiro'} />
+                        </DropdownButton>
+                        <SimpleButton label={'Archive'} href={'/archive'} />
+                        <SimpleButton label={'About'} href={'/about'} />
+                    </div>
+                </HamburgerMenu>
+            </header>
+        </div>
     );
 }
