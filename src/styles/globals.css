@@ -15,6 +15,9 @@
     --font-size: calc(11rem / 16);
     --line-height-label: 1.5em;
     --line-height-body: 1.8em;
+
+    /* Elements */
+    --header-height: calc(44rem / 16);
 }
 
 * {
@@ -29,6 +32,9 @@ body {
     font-family: 'Univers Next Pro Extended', sans-serif;
     line-height: 1.5;
 }
+body > * {
+    font-size: var(--font-size);
+}
 
 a {
     color: inherit;
@@ -38,6 +44,14 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font-family: 'Univers Next Pro Extended', sans-serif;
+    font-size: var(--font-size);
 }
 
 ::-moz-selection {
