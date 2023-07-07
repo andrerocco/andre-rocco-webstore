@@ -1,0 +1,17 @@
+.button {
+    width: fit-content;
+    height: fit-content;
+    padding: calc(10rem / 16) calc(14rem / 16);
+
+    background-color: black;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(24rem / 16);
+}
+
+.label {
+    color: white;
+}
