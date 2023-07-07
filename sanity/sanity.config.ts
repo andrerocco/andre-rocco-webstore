@@ -8,7 +8,7 @@ import {deskStructure} from './deskStructure'
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 // Define the singleton document types
-const singletonTypes = new Set(['site_settings, information'])
+const singletonTypes = new Set(['site_settings', 'information'])
 
 export default defineConfig({
   name: 'default',
