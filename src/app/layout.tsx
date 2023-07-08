@@ -6,7 +6,7 @@ import Footer from '@components/ui/footer/footer.component';
 import PageContainer from '@components/layout/page-container/page-container.component';
 
 export const metadata: Metadata = {
-    title: 'ANDRE___ROCCO',
+    title: 'ANDRE   ROCCO',
     description:
         'Explore a visão de Andre Rocco através do site oficial. Descubra os últimos lançamentos, projetos e criações.',
 };

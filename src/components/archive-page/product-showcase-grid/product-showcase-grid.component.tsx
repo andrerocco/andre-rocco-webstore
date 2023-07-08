@@ -13,8 +13,8 @@ export default function ProductShowcaseGrid({ productImages, productDescription 
     return (
         <section className={styles.container}>
             <div className={styles.image_grid}>
-                {productImages?.map((url: any) => (
-                    <div className={styles.image_wrapper}>
+                {productImages?.map((url: any, index: number) => (
+                    <div key={index} className={styles.image_wrapper}>
                         <Image fill src={url} alt="Image" className={styles.image} />
                     </div>
                 ))}
@@ -23,8 +23,12 @@ export default function ProductShowcaseGrid({ productImages, productDescription 
             <div className={styles.description_container}>
                 <div className={styles.description}>
                     {productDescriptionArray &&
-                        productDescriptionArray.map((paragraph: string) => {
-                            return <p className={styles.paragraph}>{paragraph}</p>;
+                        productDescriptionArray.map((paragraph: string, index: number) => {
+                            return (
+                                <p key={index} className={styles.paragraph}>
+                                    {paragraph}
+                                </p>
+                            );
                         })}
                 </div>
             </div>
