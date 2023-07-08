@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+
+    transform-origin: top left;
+    transition: scale 0.5s ease;
+
+    /* Prevent image dragging */
+    /* -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none; */
+}
