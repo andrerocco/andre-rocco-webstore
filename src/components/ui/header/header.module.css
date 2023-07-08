@@ -1,12 +1,17 @@
+.header_block {
+    height: var(--header-height);
+}
+
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
 
     width: 100%;
     max-width: 100vw;
-    padding: 0.8rem 4vw;
+    height: var(--header-height);
+    padding: 0 5vw;
 
     display: flex;
     justify-content: space-between;

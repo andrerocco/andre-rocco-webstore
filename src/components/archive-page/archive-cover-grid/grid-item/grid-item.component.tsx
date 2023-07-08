@@ -24,18 +24,13 @@ export default function GridItem({ priority, href, imageUrl, title, subtitle, de
                         alt={title ? title : 'Image'}
                         src={imageUrl}
                         className={styles.image}
-                        onLoadingComplete={() => {
-                            console.log('Image loaded');
-                        }}
                     />
                 )}
             </div>
             <div className={styles.content_container}>
-                <div className={styles.title_container}>
-                    {title && <h5 className={styles.title}>{title}</h5>}
-                    {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
-                </div>
-                {description && <p className={styles.description}>{description}</p>}
+                <p className={styles.description}>READY TO WEAR</p>
+                {title && <h5 className={styles.title}>{title}</h5>}
+                <p className={styles.description}>R$450</p>
             </div>
         </Link>
     );

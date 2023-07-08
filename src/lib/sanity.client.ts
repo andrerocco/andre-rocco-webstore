@@ -8,6 +8,10 @@ export async function getAllArchivePostsCover() {
     return await sanityClient.fetch(queryArchivePostsCover);
 }
 
+/* export async function getAllArchivePosts() {
+    return await sanityClient.fetch(queryArchivePosts);
+} */
+
 export async function getArchivePostSlugs() {
     return await sanityClient.fetch(queryArchivePostsSlugs);
 }

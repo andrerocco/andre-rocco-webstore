@@ -1,6 +1,7 @@
+'use client';
 import styles from './dropdown-button.module.css';
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 interface DropdownButtonProps {
     label: string;
@@ -11,7 +12,7 @@ interface DropdownButtonProps {
 }
 
 export default function DropdownButton({ label, className, labelStyles, listStyles, children }: DropdownButtonProps) {
-    const router = useRouter();
+    const path = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -19,7 +20,7 @@ export default function DropdownButton({ label, className, labelStyles, listStyl
         if (isOpen) {
             setIsOpen(false);
         }
-    }, [router.asPath]);
+    }, [path]);
 
     return (
         <div className={className ? `${styles.container} ${className}` : styles.container}>

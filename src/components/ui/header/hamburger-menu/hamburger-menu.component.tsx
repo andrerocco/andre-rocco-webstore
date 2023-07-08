@@ -1,7 +1,8 @@
+'use client';
 import styles from './hamburger-menu.module.css';
 import { useEffect, useState } from 'react';
 import { Squash as Hamburger } from './hamburger-icon/squash-hamburger.component';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 interface HamburgerMenuProps {
     className?: string;
@@ -9,15 +10,15 @@ interface HamburgerMenuProps {
 }
 
 export default function HamburgerMenu({ className, children }: HamburgerMenuProps) {
-    const router = useRouter();
+    const path = usePathname();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useEffect(() => {
-        // Close the menu when the user navigates to a new page
+        // Close the menu when the user navigates pages
         if (isOpen) {
             setIsOpen(false);
         }
-    }, [router.asPath]);
+    }, [path]);
 
     return (
         <div className={className ? `${styles.container} ${className}` : styles.container}>

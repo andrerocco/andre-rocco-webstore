@@ -4,7 +4,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: calc(10rem / 16);
+    /* gap: calc(10rem / 16); */
 }
 
 .container * {
@@ -18,7 +18,7 @@
 
     width: 100%;
     height: auto;
-    aspect-ratio: 1;
+    aspect-ratio: 3/4;
 
     background-color: var(--color-light-grey);
     overflow: hidden;
@@ -35,13 +35,17 @@
     background-color: var(--color-light-grey);
 }
 
+.content_container {
+    margin-top: 0.5vw;
+    margin-bottom: 1.5vh;
+}
+
 .title_container {
     width: 100%;
-    margin-top: calc(2rem / 16);
 
     display: flex;
     justify-content: space-between;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     gap: calc(8rem / 16);
 }
 
@@ -52,7 +56,6 @@
 }
 
 .description {
-    margin-top: calc(4rem / 16);
     text-align: justify;
 
     word-wrap: break-word;
