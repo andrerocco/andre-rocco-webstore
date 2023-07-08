@@ -12,9 +12,13 @@
     transition: scale 0.5s ease;
 
     /* Prevent image dragging */
-    /* -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none; */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
 }

@@ -3,7 +3,18 @@ import styles from './zoomable-image.module.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-export default function ZoomableImage({ src, scale = 2 }: { src: string; scale: number }) {
+export default function ZoomableImage({
+    src,
+    alt,
+    scale = 2,
+    containerProps,
+    ...imageProps
+}: {
+    src: string;
+    alt: string;
+    scale: number;
+    containerProps?: object;
+}) {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isZooming, setIsZooming] = useState(false);
@@ -57,11 +68,12 @@ export default function ZoomableImage({ src, scale = 2 }: { src: string; scale: 
             ref={containerRef}
             className={`${styles.container} ${isZooming ? styles.zooming : ''}`}
             onClick={handleClick}
+            {...containerProps}
         >
             <Image
                 fill
                 src={src}
-                alt="Image"
+                alt={alt ? alt : 'Image'}
                 className={styles.image}
                 style={
                     isZooming
@@ -71,6 +83,7 @@ export default function ZoomableImage({ src, scale = 2 }: { src: string; scale: 
                           }
                         : undefined
                 }
+                {...imageProps}
             />
         </div>
     );
