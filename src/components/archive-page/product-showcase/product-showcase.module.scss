@@ -1,0 +1,126 @@
+/* Grid templates */
+$grid-template-desktop: 4fr 2fr;
+$grid-template-ultrawide: 2fr 1fr;
+$grid-template-tablet: 3fr 2fr;
+$grid-template-mobile: 1fr;
+/* Grid gap */
+$column-gap: 1.5vw;
+
+.container {
+    width: 100%;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: $grid-template-desktop;
+    grid-template-areas:
+        '. .'
+        'info info';
+    column-gap: $column-gap;
+}
+
+.description_container {
+    height: 100%;
+    position: relative;
+
+    .sticky_description {
+        position: sticky;
+        top: var(--header-height);
+        width: 100%;
+        padding: 1vw 0;
+        padding-right: 5vw;
+    }
+}
+
+.sticky_container {
+    grid-area: info;
+    position: sticky;
+    bottom: 0;
+    top: calc(var(--header-height) - 1px);
+    width: 100%;
+    height: fit-content;
+
+    display: grid;
+    grid-template-columns: $grid-template-desktop;
+    column-gap: $column-gap;
+
+    padding: 0.8rem 0;
+    background-color: white;
+    border-top: 1px solid #d6d6d6;
+
+    .main_information {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin-left: 5vw;
+
+        * {
+            font-weight: normal;
+            font-size: var(--font-size);
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .button_wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        margin-right: 5vw;
+    }
+}
+
+.mobile_description {
+    display: none;
+    padding: 0.8rem 5vw;
+}
+
+/* Ultrawide */
+@media (min-aspect-ratio: 21/9) {
+    .container {
+        grid-template-columns: $grid-template-ultrawide;
+        padding: 0 5vw;
+    }
+
+    .description {
+        padding-right: 0;
+    }
+}
+
+/* Tablets */
+@media (max-aspect-ratio: 4/3) {
+    .container {
+        grid-template-columns: $grid-template-tablet;
+        grid-template-areas:
+            '. .'
+            'info info';
+    }
+}
+
+/* Mobile */
+@media (max-width: 60rem) {
+    .container {
+        grid-template-columns: $grid-template-mobile;
+        grid-template-areas:
+            '.'
+            'info';
+        padding: 0;
+    }
+
+    .description_container {
+        display: none;
+    }
+
+    .mobile_description {
+        display: block;
+    }
+}
