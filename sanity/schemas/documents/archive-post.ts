@@ -45,7 +45,6 @@ const archivePost = {
       group: 'general_information',
     },
     {
-      // Single select
       name: 'lineup',
       type: 'string',
       title: 'Lineup',
@@ -63,10 +62,10 @@ const archivePost = {
       fieldset: 'release_information',
     },
     {
-      name: 'price',
-      type: 'number',
-      title: 'Price',
-      validation: (Rule: any) => Rule.min(0),
+      name: 'season',
+      type: 'string',
+      title: 'Season',
+      description: 'The season this product belongs to.',
       group: 'general_information',
       fieldset: 'release_information',
     },
@@ -88,6 +87,14 @@ const archivePost = {
       description:
         'This value is used to sort the list of posts. If the item is not released, set this date to where you want it to appear in the list.',
       validation: (Rule: any) => Rule.required(),
+      group: 'general_information',
+      fieldset: 'release_information',
+    },
+    {
+      name: 'price',
+      type: 'number',
+      title: 'Price',
+      validation: (Rule: any) => Rule.min(0),
       group: 'general_information',
       fieldset: 'release_information',
     },

@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    height: fit-content;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .image_wrapper {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+
+        background-color: var(--color-light-grey);
+        overflow: hidden;
+    }
+}
+
+/* Tablets */
+@media (max-aspect-ratio: 4/3) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

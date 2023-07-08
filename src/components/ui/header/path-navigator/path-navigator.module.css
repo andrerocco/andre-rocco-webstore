@@ -1,5 +1,7 @@
 .nav {
+    height: min-content;
     text-transform: uppercase;
+    line-height: 1;
     font-size: var(--font-size);
 }
 

@@ -1,8 +1,17 @@
 import styles from './contrast-button.module.css';
 
-export default function ContrastButton({ children, ...props }: { children: React.ReactNode }) {
+interface ContrastButtonProps {
+    children: React.ReactNode;
+    enabled?: boolean;
+}
+
+export default function ContrastButton({ children, enabled = true, ...props }: ContrastButtonProps) {
     return (
-        <button className={styles.button} {...props}>
+        <button
+            className={enabled ? `${styles.button} ${styles.enabled}` : `${styles.button} ${styles.disabled}`}
+            disabled={enabled ? false : true}
+            {...props}
+        >
             {children}
         </button>
     );

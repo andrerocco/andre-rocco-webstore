@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: calc(8rem / 16);
+}
+
+.container > p.paragraph {
+    white-space: pre-wrap;
+}
