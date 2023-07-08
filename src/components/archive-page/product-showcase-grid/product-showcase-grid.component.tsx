@@ -1,3 +1,4 @@
+import ZoomableImage from '@components/ui/image/zoomable-image/zoomable-image.component';
 import styles from './product-showcase-grid.module.scss';
 import Image from 'next/image';
 
@@ -15,7 +16,7 @@ export default function ProductShowcaseGrid({ productImages, productDescription 
             <div className={styles.image_grid}>
                 {productImages?.map((url: any, index: number) => (
                     <div key={index} className={styles.image_wrapper}>
-                        <Image fill src={url} alt="Image" className={styles.image} />
+                        <ZoomableImage src={url} alt="Image" scale={1.75} />
                     </div>
                 ))}
             </div>

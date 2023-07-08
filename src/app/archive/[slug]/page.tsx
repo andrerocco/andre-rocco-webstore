@@ -17,10 +17,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 productDescription={postData?.images_description}
             />
 
-            <div style={{ width: '600px', height: '800px', backgroundColor: 'red' }}>
-                <ZoomableImage src={postData?.product_images[0]} scale={1.5} />
-            </div>
-
             {/* <div className={styles.container}>
                 <div className={styles.left_wrapper}>
                     <div className={styles.showcase_grid}>
