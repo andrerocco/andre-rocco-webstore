@@ -51,7 +51,7 @@ export const queryArchivePostBySlug = groq`
 		"data": {
 			title,
 			lineup,
-			seasson,
+			season,
 			price,
 			"released": {
 				"status": released,
