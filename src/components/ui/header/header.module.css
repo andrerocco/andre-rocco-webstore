@@ -42,12 +42,12 @@ ul.nav_list li {
     display: flex;
     flex-direction: column;
     gap: calc(20rem / 16);
-    padding: calc(20rem / 16) 4vw;
+    padding: calc(20rem / 16) 5vw;
 }
 
 @media screen and (max-width: 37.5rem) {
     .header {
-        padding: 0.65rem 4vw;
+        padding: 0.65rem 5vw;
     }
 
     .nav_list {
