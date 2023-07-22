@@ -12,11 +12,11 @@ export interface IArchivePost extends SanityDocument {
         quantity?: number;
         season?: string;
         button?: {
-            available?: boolean;
+            enabled?: boolean;
             url?: string;
-            text?: string;
+            text?: string[]; // Array of strings to show in the button
         };
-        product_images?: UrlDefinition[];
+        product_images?: string[]; // Array of images to show in the product section
         images_description?: string;
     };
 }

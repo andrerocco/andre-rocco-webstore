@@ -111,7 +111,7 @@ const archivePost = {
     },
     // Button
     {
-      name: 'button_available',
+      name: 'button_enabled',
       title: 'Button available',
       description: 'Set this to true if the button should be clickable.',
       type: 'boolean',
@@ -124,7 +124,7 @@ const archivePost = {
       title: 'Redirect URL',
       description: 'The URL the button will redirect to.',
       type: 'url',
-      hidden: ({document}: any) => !document.button_available,
+      hidden: ({document}: any) => !document.button_enabled,
       group: 'general_information',
       fieldset: 'button',
     },

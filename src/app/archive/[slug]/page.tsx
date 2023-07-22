@@ -1,10 +1,14 @@
 import { getArchivePostSlugs, getArchivePostBySlug } from '@lib/sanity.client';
 // Components
 import ProductShowcase from '@components/archive-page/product-showcase/product-showcase.component';
+// Interfaces
+import { IArchivePost } from '@models/archive-posts.interface';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const post = await getArchivePostBySlug(params.slug);
+    const post: IArchivePost = await getArchivePostBySlug(params.slug);
     const postData = post?.data;
+
+    console.log(postData);
 
     return (
         <>
@@ -14,6 +18,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 title={postData?.title}
                 season={postData?.season}
                 lineup={postData?.lineup}
+                buttonEnabled={postData?.button?.enabled}
+                buttonUrl={postData?.button?.url}
+                buttonText={postData?.button?.text}
             />
         </>
     );

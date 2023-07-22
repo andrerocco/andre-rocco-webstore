@@ -35,8 +35,8 @@ export const queryArchivePostBySlug = groq`
 			price,
 			quantity,
 			season,
-			"redirect_button": {
-				"available": button_available,
+			"button": {
+				"enabled": button_enabled,
 				"url": redirect_url,
 				"text": button_text,
 			},
