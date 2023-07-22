@@ -9,6 +9,7 @@ interface ArchiveCoverGridProps {
 }
 
 export default function ArchiveCoverGrid({ data }: ArchiveCoverGridProps) {
+    console.log(data);
     return (
         <div className={styles.container}>
             {data?.length != 0 && (
@@ -18,10 +19,11 @@ export default function ArchiveCoverGrid({ data }: ArchiveCoverGridProps) {
                             key={post?._id}
                             priority={index < 6 ? true : false}
                             href={`/archive/${post?.slug?.current}`}
-                            title={post?.data?.title ? post?.data?.title : 'No title'}
-                            subtitle={post?.data?.season}
-                            description={post?.data?.preview_description}
                             imageUrl={post?.data?.preview_image_url}
+                            title={post?.data?.title ? post?.data?.title : 'No title'}
+                            subtitle={post?.data?.subtitle}
+                            lineup={post?.data?.lineup}
+                            season={post?.data?.season}
                         />
                     ))}
                 </div>
