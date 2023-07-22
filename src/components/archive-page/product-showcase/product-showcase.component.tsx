@@ -28,8 +28,6 @@ export default function ProductShowcase({
     // Double line break is a paragraph break and single line break is a line break
     const productDescriptionArray = productDescription?.split('\n\n') || [];
 
-    console.log(buttonText);
-
     return (
         <section className={styles.container}>
             <ZoomableImageGrid images={productImages ? productImages : []} />

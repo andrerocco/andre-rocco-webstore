@@ -6,10 +6,16 @@ import Footer from '@components/ui/footer/footer.component';
 import PageContainer from '@components/layout/page-container/page-container.component';
 
 export const metadata: Metadata = {
-    title: 'ANDRE   ROCCO',
+    title: 'ANDRE  ROCCO',
     description:
-        'Explore a visão de Andre Rocco através do site oficial. Descubra os últimos lançamentos, projetos e criações.',
+        'Descubra as criações exclusivas da marca ANDRE ROCCO - fundada em 2023 no Brasil. Descubra peças em nossa loja online e explore o arquivo virtual de peças.',
+    themeColor: '#000000',
+    category: 'Fashion',
 };
+
+/* Explore nosso archive de peças de roupa únicas, desenvolvidas pelo criador da marca, André Rocco, desde 2023. */
+/* Descubra as criações exclusivas da marca ANDRE ROCCO, fundada em 2023 no Brasil. Descubra peças em nossa loja online e explore o arquivo virtual de peças. */
+/* Bem-vindo à ANDRE ROCCO. Encontre peças exclusivas em nossa loja online e desvende a história da marca através do arquivo virtual de criações. */
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
