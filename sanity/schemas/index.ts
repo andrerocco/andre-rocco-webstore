@@ -5,8 +5,6 @@ import information from './singletons/information'
 import siteSettings from './singletons/site-settings'
 // Modules
 import imageModule from './modules/image.module'
-import imageRowTwoModule from './modules/image-row.two.module'
-import imageRowThreeModule from './modules/image-row.three.module'
 
 export const schemaTypes = [
   // Documents
@@ -18,6 +16,4 @@ export const schemaTypes = [
 
   // Modules
   imageModule,
-  imageRowTwoModule,
-  imageRowThreeModule,
 ]

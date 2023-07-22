@@ -1,43 +1,23 @@
 import { groq } from 'next-sanity';
 
 // TODO - Fix
-//
 export const queryArchivePostsCover = groq`
 	*[_type == "archive_post"] | order(released_date desc) {
 		_createdAt, _id, _rev, _type, _updatedAt,
 		slug,
 		"data": {
-			title,
+			lineup,
 			season,
-			price,
-			preview_description,
+			title,
+			subtitle,
 			preview_image_url,
 		}
 	}
 `;
 
-/* // Gets all 'Archive' posts with all data
-export const queryArchivePosts = groq`
-	*[_type == "archive_post"] | order(released_date desc) {
-		_createdAt, _id, _rev, _type, _updatedAt,
-		slug,
-		"data": {
-			title,
-			lineup,
-			price,
-			"released": {
-				"status": released,
-				released_date,
-			},
-			product_images,
-			images_description,
-		}
-	}
-`; */
-
 // Gets all slugs for 'Archive' posts
 export const queryArchivePostsSlugs = groq`
-	*[_type == "archive_post"] | order(released_date desc) {
+	*[_type == "archive_post"] | order(date desc) {
 		_id,
 		slug
 	}
@@ -51,11 +31,14 @@ export const queryArchivePostBySlug = groq`
 		"data": {
 			title,
 			lineup,
-			season,
+			date,
 			price,
-			"released": {
-				"status": released,
-				released_date,
+			quantity,
+			season,
+			"button": {
+				"enabled": button_enabled,
+				"url": redirect_url,
+				"text": button_text,
 			},
 			product_images,
 			images_description,

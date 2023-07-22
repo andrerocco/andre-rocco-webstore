@@ -13,8 +13,14 @@ const archivePost = {
       name: 'release_information',
       title: 'Release information',
       options: {
-        rows: 2,
         columns: 2,
+      },
+    },
+    {
+      name: 'button',
+      title: 'Button',
+      options: {
+        columns: 1,
       },
     },
   ],
@@ -39,11 +45,20 @@ const archivePost = {
       group: 'general_information',
     },
     {
+      name: 'subtitle',
+      title: 'Subtitle',
+      description:
+        'Displayed in the post cover/preview (where multiple archive posts are browsed). It can be the price, quantity, etc. Leave it blank for no subtitle.',
+      type: 'string',
+      group: 'general_information',
+    },
+    {
       name: 'preview_image_url',
       type: 'url',
       title: 'Preview image URL',
       group: 'general_information',
     },
+    // Release information
     {
       name: 'lineup',
       type: 'string',
@@ -51,10 +66,10 @@ const archivePost = {
       description: 'The lineup this product belongs to.',
       options: {
         list: [
-          {title: 'MAINLINE', value: 'Mainline'},
-          {title: 'READY TO WEAR', value: 'Ready to wear'},
-          {title: 'ARCHIVE', value: 'Archive'},
-          {title: 'PROTOTYPE', value: 'Prototype'},
+          {title: 'Mainline', value: 'Mainline'},
+          {title: 'Ready to wear', value: 'Ready to wear'},
+          {title: 'Archive', value: 'Archive'},
+          {title: 'Prototype', value: 'Prototype'},
         ],
       },
       validation: (Rule: any) => Rule.required(),
@@ -62,30 +77,10 @@ const archivePost = {
       fieldset: 'release_information',
     },
     {
-      name: 'season',
-      type: 'string',
-      title: 'Season',
-      description: 'The season this product belongs to.',
-      group: 'general_information',
-      fieldset: 'release_information',
-    },
-    {
-      name: 'released',
-      type: 'boolean',
-      title: 'Released',
-      description:
-        'If your item is not yet released, set this to false. This will hide any release related information from the post.',
-      initialValue: true,
-      validation: (Rule: any) => Rule.required(),
-      group: 'general_information',
-      fieldset: 'release_information',
-    },
-    {
-      name: 'released_date',
+      name: 'date',
       type: 'date',
-      title: 'Released date',
-      description:
-        'This value is used to sort the list of posts. If the item is not released, set this date to where you want it to appear in the list.',
+      title: 'Date',
+      description: 'This value is used to sort the list of posts.',
       validation: (Rule: any) => Rule.required(),
       group: 'general_information',
       fieldset: 'release_information',
@@ -97,6 +92,57 @@ const archivePost = {
       validation: (Rule: any) => Rule.min(0),
       group: 'general_information',
       fieldset: 'release_information',
+    },
+    {
+      name: 'quantity',
+      type: 'number',
+      title: 'Quantity',
+      description: 'The amount of items produced.',
+      group: 'general_information',
+      fieldset: 'release_information',
+    },
+    {
+      name: 'season',
+      type: 'string',
+      title: 'Season',
+      description: 'The season this product belongs to.',
+      group: 'general_information',
+      fieldset: 'release_information',
+    },
+    // Button
+    {
+      name: 'button_enabled',
+      title: 'Button available',
+      description: 'Set this to true if the button should be clickable.',
+      type: 'boolean',
+      initialValue: false,
+      group: 'general_information',
+      fieldset: 'button',
+    },
+    {
+      name: 'redirect_url',
+      title: 'Redirect URL',
+      description: 'The URL the button will redirect to.',
+      type: 'url',
+      hidden: ({document}: any) => !document.button_enabled,
+      group: 'general_information',
+      fieldset: 'button',
+    },
+    {
+      name: 'button_text',
+      title: 'Button text',
+      description:
+        'This is the text that will be shown in the button of the archive product page. Examples of text are "Sold out", "1/1", "Coming soon", etc. Each element of the array will be spaced',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+          validation: (Rule: any) => Rule.required(),
+        },
+      ],
+      validation: (Rule: any) => Rule.max(2),
+      group: 'general_information',
+      fieldset: 'button',
     },
     // Content
     {
@@ -125,7 +171,7 @@ const archivePost = {
   preview: {
     select: {
       title: 'title',
-      date: 'released_date',
+      date: 'date',
       slug: 'slug',
       imageUrl: 'preview_image_url', // Add preview_image_url to select
     },

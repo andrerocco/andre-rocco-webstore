@@ -3,15 +3,16 @@ import Link from 'next/link';
 import styles from './grid-item.module.css';
 
 interface ComponentProps {
-    href: string;
-    title: string;
     priority?: boolean;
-    subtitle?: string;
-    description?: string;
+    href: string;
     imageUrl?: string;
+    title: string;
+    subtitle?: string;
+    lineup?: string;
+    season?: string;
 }
 
-export default function GridItem({ priority, href, imageUrl, title, subtitle, description }: ComponentProps) {
+export default function GridItem({ priority, href, imageUrl, title, subtitle, lineup, season }: ComponentProps) {
     return (
         <Link href={href} className={styles.container}>
             <div className={styles.image_container}>
@@ -27,10 +28,13 @@ export default function GridItem({ priority, href, imageUrl, title, subtitle, de
                     />
                 )}
             </div>
-            <div className={styles.content_container}>
-                <p className={styles.description}>READY TO WEAR</p>
-                {title && <h5 className={styles.title}>{title}</h5>}
-                <p className={styles.description}>R$450</p>
+            <div className={styles.information_container}>
+                <div className={styles.flex}>
+                    {lineup && <h2>{lineup}</h2>}
+                    {season && <h3>{season}</h3>}
+                </div>
+                {title && <h1>{title}</h1>}
+                {subtitle && <p>{subtitle}</p>}
             </div>
         </Link>
     );

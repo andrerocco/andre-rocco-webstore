@@ -1,16 +1,18 @@
-import ZoomableImage from '@components/ui/image/zoomable-image/zoomable-image.component';
 import styles from './product-showcase.module.scss';
-import Image from 'next/image';
+// Components
 import ZoomableImageGrid from '@components/archive-page/product-showcase/zoomable-image-grid/zoomable-image-grid.component';
 import ContrastButton from '@components/ui/button/contrast-button/contrast-button.component';
 import TextDescription from './text-description/text-description.component';
 
 interface PageContainerProps {
-    productImages: string[];
-    productDescription: string;
-    title: string;
+    productImages: string[] | undefined;
+    productDescription?: string;
+    title?: string;
     lineup?: string;
     season?: string;
+    buttonEnabled?: boolean;
+    buttonUrl?: string;
+    buttonText?: string[];
 }
 
 export default function ProductShowcase({
@@ -19,13 +21,18 @@ export default function ProductShowcase({
     title,
     lineup,
     season,
+    buttonEnabled,
+    buttonUrl,
+    buttonText,
 }: PageContainerProps) {
     // Double line break is a paragraph break and single line break is a line break
-    const productDescriptionArray = productDescription?.split('\n\n');
+    const productDescriptionArray = productDescription?.split('\n\n') || [];
+
+    console.log(buttonText);
 
     return (
         <section className={styles.container}>
-            <ZoomableImageGrid images={productImages} />
+            <ZoomableImageGrid images={productImages ? productImages : []} />
 
             <div className={styles.description_container}>
                 <div className={styles.sticky_description}>
@@ -43,8 +50,10 @@ export default function ProductShowcase({
                 </div>
 
                 <div className={styles.button_wrapper}>
-                    <ContrastButton enabled={false}>
-                        <ContrastButton.label>1/1</ContrastButton.label>
+                    <ContrastButton enabled={buttonEnabled} href={buttonUrl}>
+                        {buttonText?.map((text, index) => (
+                            <ContrastButton.label key={index}>{text}</ContrastButton.label>
+                        ))}
                     </ContrastButton>
                 </div>
             </div>
