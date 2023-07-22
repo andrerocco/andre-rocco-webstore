@@ -9,7 +9,6 @@ interface ArchiveCoverGridProps {
 }
 
 export default function ArchiveCoverGrid({ data }: ArchiveCoverGridProps) {
-    console.log(data);
     return (
         <div className={styles.container}>
             {data?.length != 0 && (
