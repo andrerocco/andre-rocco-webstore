@@ -44,7 +44,7 @@ export default function ProductShowcase({
                         {lineup && <h2>{lineup}</h2>}
                         <h1>{title}</h1>
                     </div>
-                    <div className={styles.season}>{season && <p>{season}</p>}</div>
+                    {season && <p className={styles.season}>{season}</p>}
                 </div>
 
                 <div className={styles.button_wrapper}>

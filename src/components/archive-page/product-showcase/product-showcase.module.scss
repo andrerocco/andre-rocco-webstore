@@ -40,6 +40,7 @@ $column-gap: 1.5vw;
     height: fit-content;
 
     display: grid;
+    align-items: center;
     grid-template-columns: $grid-template-desktop;
     column-gap: $column-gap;
 
@@ -48,6 +49,7 @@ $column-gap: 1.5vw;
     border-top: 1px solid #d6d6d6;
 
     .main_information {
+        height: fit-content;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -60,12 +62,17 @@ $column-gap: 1.5vw;
         }
 
         .title {
+            height: fit-content;
             display: flex;
             flex-direction: column;
 
             h2 {
                 text-transform: uppercase;
             }
+        }
+
+        .season {
+            height: fit-content;
         }
     }
 
