@@ -28,4 +28,4 @@ atualizar o código da aplicação.
 ## Autores
 
 -   **André Rocco** - _Desenvolvimento completo (incluíndo design, frontend, backend)_ -
-    [@andre---rocco](https://www.linkedin.com/in/andre---rocco/)
+    [@andre---rocco](https://www.linkedin.com/in/andre-rocco/)

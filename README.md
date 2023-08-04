@@ -28,4 +28,4 @@ application code.
 ## Authors
 
 -   **André Rocco** - _Full development (including design, frontend, backend)_ -
-    [@andre---rocco](https://www.linkedin.com/in/andre---rocco/)
+    [@andre---rocco](https://www.linkedin.com/in/andre-rocco/)
