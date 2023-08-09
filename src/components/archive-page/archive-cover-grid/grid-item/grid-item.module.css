@@ -26,7 +26,7 @@
 
 .image {
     object-fit: cover;
-    transition: opacity 0.2s ease-in;
+    transition: opacity 0.1s ease-in;
 }
 
 .container:hover .image.hover_disapear {
@@ -47,8 +47,8 @@
 }
 
 .information_container {
-    margin-top: 0.5vw;
-    margin-bottom: 1.5vh;
+    margin-top: calc(6rem / 16);
+    margin-bottom: calc(14rem / 16);
 }
 
 .information_container .flex {
