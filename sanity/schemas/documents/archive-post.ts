@@ -53,9 +53,18 @@ const archivePost = {
       group: 'general_information',
     },
     {
-      name: 'preview_image_url',
-      type: 'url',
-      title: 'Preview image URL',
+      name: 'cover_images',
+      title: 'Cover images',
+      description:
+        'Images that will be displayed in the post cover/preview (where multiple archive posts are browsed).',
+      type: 'array',
+      of: [
+        {
+          type: 'url',
+          title: 'Image URL',
+        },
+      ],
+      validation: (Rule: any) => Rule.min(1).max(2).required(),
       group: 'general_information',
     },
     // Release information
@@ -173,14 +182,14 @@ const archivePost = {
       title: 'title',
       date: 'date',
       slug: 'slug',
-      imageUrl: 'preview_image_url', // Add preview_image_url to select
+      imageUrl: 'cover_images', // Add cover_images to select
     },
     prepare(selection: any) {
       const {title, date, slug, imageUrl} = selection // Destructure imageUrl
       return {
         title: title,
         subtitle: `${date.split('-').reverse().join('/')} | ${slug.current}`,
-        imageUrl: imageUrl, // Add imageUrl to the returned object
+        imageUrl: imageUrl[0], // Add imageUrl to the returned object
       }
     },
   },

@@ -10,7 +10,7 @@ export const queryArchivePostsCover = groq`
 			season,
 			title,
 			subtitle,
-			preview_image_url,
+			cover_images,
 		}
 	}
 `;
