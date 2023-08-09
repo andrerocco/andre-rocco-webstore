@@ -26,6 +26,11 @@
 
 .image {
     object-fit: cover;
+    transition: opacity 0.2s ease-in;
+}
+
+.container:hover .image.hover_disapear {
+    opacity: 0;
 }
 
 .image_square {

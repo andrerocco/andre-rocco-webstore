@@ -18,7 +18,8 @@ export default function ArchiveCoverGrid({ data }: ArchiveCoverGridProps) {
                             key={post?._id}
                             priority={index < 6 ? true : false}
                             href={`/archive/${post?.slug?.current}`}
-                            imageUrl={post?.data?.preview_image_url}
+                            coverImageUrl={post?.data?.cover_images?.[0]}
+                            hoverImageUrl={post?.data?.cover_images?.[1]}
                             title={post?.data?.title ? post?.data?.title : 'No title'}
                             subtitle={post?.data?.subtitle}
                             lineup={post?.data?.lineup}
