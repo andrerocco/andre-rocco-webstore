@@ -5,7 +5,7 @@ export interface IArchivePost extends SanityDocument {
     data?: {
         title?: string;
         subtitle?: string; // Shown in the cover below the title
-        preview_image_url?: string; // Shown in the cover
+        cover_images?: string[]; // Shown in the cover
         lineup?: string; // Shown in the cover and post information
         date?: DateDefinition;
         price?: number;

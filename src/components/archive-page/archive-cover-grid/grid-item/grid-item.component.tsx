@@ -5,26 +5,48 @@ import styles from './grid-item.module.css';
 interface ComponentProps {
     priority?: boolean;
     href: string;
-    imageUrl?: string;
+    coverImageUrl?: string;
+    hoverImageUrl?: string;
     title: string;
     subtitle?: string;
     lineup?: string;
     season?: string;
 }
 
-export default function GridItem({ priority, href, imageUrl, title, subtitle, lineup, season }: ComponentProps) {
+export default function GridItem({
+    priority,
+    href,
+    coverImageUrl,
+    hoverImageUrl,
+    title,
+    subtitle,
+    lineup,
+    season,
+}: ComponentProps) {
     return (
         <Link href={href} className={styles.container}>
             <div className={styles.image_container}>
-                {imageUrl && (
+                {hoverImageUrl && (
                     <Image
                         fill
                         sizes="(max-width: 900px) 100vw, (max-width: 1500px) 50vw, 33vw"
                         priority={priority ? priority : false}
                         quality={100}
                         alt={title ? title : 'Image'}
-                        src={imageUrl}
+                        src={hoverImageUrl}
                         className={styles.image}
+                    />
+                )}
+                {coverImageUrl && (
+                    <Image
+                        fill
+                        sizes="(max-width: 900px) 100vw, (max-width: 1500px) 50vw, 33vw"
+                        priority={priority ? priority : false}
+                        quality={100}
+                        alt={title ? title : 'Image'}
+                        src={coverImageUrl}
+                        // If there is a hover image, add the hover_disapear class so that image fades out on hover
+                        className={hoverImageUrl ? `${styles.image} ${styles.hover_disapear}` : styles.image}
                     />
                 )}
             </div>
