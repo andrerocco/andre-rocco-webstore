@@ -11,7 +11,7 @@ using [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.or
 [Sanity CMS](https://www.sanity.io/), which allows the creation of new posts and products without the need to update the
 application code.
 
-**Access the site and discover more at [www.andre---rocco.com](https://andre-rocco-webstore.netlify.app/).**
+<!-- **Access the site and discover more at [www.andre---rocco.com](https://andre-rocco-webstore.netlify.app/).** -->
 
 ## Table of Contents
 
